@@ -6,9 +6,9 @@ import WithArgument from './components/basics/WithArgument'
 
 ReactDOM.render(
     <div>
-        <WithArgument a='Primeiro' b='Segundo'>
+        <First>
 
-        </WithArgument>
+        </First>
     </div>,
     document.getElementById('root')
 )
