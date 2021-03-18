@@ -5,9 +5,7 @@ import First from './components/basics/First'
 
 ReactDOM.render(
     <div>
-        <First>
-            
-        </First>
+        <strong>Hello world!</strong>
     </div>,
     document.getElementById('root')
 )
