@@ -1,4 +1,5 @@
 import "./App.css"
+import Products from "./components/loop/Products";
 import Students from "./components/loop/Students";
 import FamilyMember from "./components/basics/FamilyMember";
 import Family from "./components/basics/Family";
@@ -11,6 +12,9 @@ import React from "react";
 const App = () => (
     <div id="app" className="App">
         <div id="cards" className="Cards">
+            <Card title="Products" color="#920024">
+                <Products />
+            </Card>
             <Card title="Students" color="#ff7f0e">
                 <Students />
             </Card>
