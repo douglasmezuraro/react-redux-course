@@ -1,4 +1,5 @@
 import "./App.css"
+import Students from "./components/loop/Students";
 import FamilyMember from "./components/basics/FamilyMember";
 import Family from "./components/basics/Family";
 import Card from "./layout/Card";
@@ -10,6 +11,9 @@ import React from "react";
 const App = () => (
     <div id="app" className="App">
         <div id="cards" className="Cards">
+            <Card title="Students" color="#ff7f0e">
+                <Students />
+            </Card>
             <Card title="Family" color="#00173d">
                 <Family lastName="Silva">
                     <FamilyMember name="João" />
