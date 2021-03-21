@@ -1,4 +1,5 @@
 import "./App.css"
+import EvenOrOdd from "./components/conditional/EvenOrOdd";
 import Products from "./components/loop/Products";
 import Students from "./components/loop/Students";
 import FamilyMember from "./components/basics/FamilyMember";
@@ -12,6 +13,9 @@ import React from "react";
 const App = () => (
     <div id="app" className="App">
         <div id="cards" className="Cards">
+            <Card title="EvenOrOdd" color="#000">
+                <EvenOrOdd value={14}/>
+            </Card>
             <Card title="Products" color="#920024">
                 <Products />
             </Card>
