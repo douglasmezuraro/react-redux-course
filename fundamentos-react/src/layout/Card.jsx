@@ -7,6 +7,7 @@ const Card = props => {
         backgroundColor: color || '#F00',
         borderColor: color || '#F00',
     }
+    
     return (
         <div className="Card" style={cardStyle}>
             <div className="Title"> {title} </div>

@@ -19,10 +19,10 @@ const App = () => (
                 </Family>
             </Card>
             <Card title="Random" color="#003">
-                <Random min={5} max={15} />
+                <Random min={5} max={600} />
             </Card>
             <Card title="WithArgument" color="#030">
-                <WithArgument a="1" b="2" c="3" />
+                <WithArgument first="Teste #1" second="Teste #2" third="Teste #3" />
             </Card>
             <Card title="First" color="#500">
                 <First />
