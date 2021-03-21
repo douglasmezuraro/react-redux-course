@@ -2,24 +2,30 @@ import React from "react";
 import ProductList from "../../data/products";
 
 const Products = () => {
-    const row = ProductList.map(product => {
+    const rows = ProductList.map(product => {
         return (
             <tr key={product.id}>
                 <th>{product.id}</th>
                 <th>{product.name}</th>
-                <th>{product.price}</th>
+                <th>R${product.price.toFixed(2)}</th>
             </tr>
         );
     });
 
     return (
         <div>
-            <tr>
-                <th>Id</th>
-                <th>Name</th>
-                <th>Price</th>
-            </tr>
-            {row}
+            <table>
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Name</th>
+                        <th>Price</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {rows}
+                </tbody>
+            </table>
         </div>
     );
 };
