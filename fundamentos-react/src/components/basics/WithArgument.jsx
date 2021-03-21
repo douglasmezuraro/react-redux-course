@@ -1,8 +1,11 @@
-export default function (args) {
+const WithArgument = props => {
+    const { a, b} = props;
     return (
         <div>
-            <h2> { args.a } </h2>
-            <h3> { args.b } </h3>
+            <h2> Argumento "a": { a } </h2>
+            <h2> Argumento "b": { b } </h2>
         </div>
-    )
-}
+    );
+};
+
+export default WithArgument;

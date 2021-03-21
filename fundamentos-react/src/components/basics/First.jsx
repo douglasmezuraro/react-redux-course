@@ -1,13 +1,11 @@
-import react from 'react'
-
-export default function First() {
-    const msg = 'qq ta conte seno'
+const First = () => {
+    const msg = "Mensagem Teste";
     return (
         <div>
-            <h2>
-                Primeiro componente!
-            </h2>
+            <h2>Primeiro componente!</h2>
             <p>{ msg }</p>
         </div>
-    )
-}
+    );
+};
+
+export default First;
