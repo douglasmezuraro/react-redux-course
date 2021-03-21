@@ -4,13 +4,13 @@ const WithArgument = props => {
     return (
         <div>
             <p>
-                <strong>Primeiro argumento:</strong> {first}.
+                <strong>Primeiro argumento:</strong> {first}
             </p>
             <p>
-                <strong>Segundo argumento:</strong> {second}.
+                <strong>Segundo argumento:</strong> {second}
             </p>
             <p>
-                <strong>Terceiro argumento:</strong> {third}.
+                <strong>Terceiro argumento:</strong> {third}
             </p>
         </div>
     );
