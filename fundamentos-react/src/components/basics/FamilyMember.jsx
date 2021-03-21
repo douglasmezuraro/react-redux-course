@@ -5,7 +5,7 @@ const FamilyMember = props => {
 
     return (
         <div>
-            {name} {lastName}
+            <p>{name} {lastName}</p>
         </div>
     );
 };
