@@ -7,13 +7,13 @@ const Random = props => {
     return (
         <div>
             <p>
-                <strong>Valor mínimo:</strong> { min }.
+                <strong>Valor mínimo:</strong> {min}.
             </p>
             <p>
-                <strong>Valor máximo:</strong> { max }.
+                <strong>Valor máximo:</strong> {max}.
             </p>
             <p>
-                <strong>Valor aleatório:</strong> { random }.
+                <strong>Valor aleatório:</strong> {random}.
             </p>
         </div>
     );

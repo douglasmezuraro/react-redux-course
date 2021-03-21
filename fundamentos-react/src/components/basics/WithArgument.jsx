@@ -1,9 +1,16 @@
 const WithArgument = props => {
-    const { a, b} = props;
+    const { a, b, c } = props;
     return (
         <div>
-            <h2> Argumento "a": { a } </h2>
-            <h2> Argumento "b": { b } </h2>
+            <p>
+                <strong>Argumento a:</strong> {a}.
+            </p>
+            <p>
+                <strong>Argumento b:</strong> {b}.
+            </p>
+            <p>
+                <strong>Argumento c:</strong> {c}.
+            </p>
         </div>
     );
 };

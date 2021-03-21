@@ -1,9 +1,7 @@
 const First = () => {
-    const msg = "Mensagem Teste";
     return (
         <div>
-            <h2>Primeiro componente!</h2>
-            <p>{ msg }</p>
+            <p>Primeiro componente!</p>
         </div>
     );
 };
