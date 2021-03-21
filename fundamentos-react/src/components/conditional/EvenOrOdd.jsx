@@ -7,7 +7,7 @@ const EvenOrOdd = props => {
     return (
         <div>
             <span>
-                O número {value} é {isEven? "par": "ímpar"}
+                O número {value} é {isEven ? "par" : "ímpar"}
             </span>
         </div>
     );
