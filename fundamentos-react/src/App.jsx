@@ -1,4 +1,5 @@
 import "./App.css"
+import Input from "./components/form/input";
 import IndirectComunication from "./components/comunication/indirect/Parent";
 import DirectComunication from "./components/comunication/direct/Parent";
 import User from "./components/conditional/User";
@@ -16,6 +17,9 @@ import React from "react";
 const App = () => (
     <div id="app" className="App">
         <div id="cards" className="Cards">
+            <Card title="Input" color="#1f77b4">
+                <Input />
+            </Card>
             <Card title="Indirect comunication" color="#444">
                 <IndirectComunication />
             </Card>
