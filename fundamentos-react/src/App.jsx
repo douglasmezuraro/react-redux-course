@@ -1,4 +1,5 @@
 import "./App.css"
+import DirectComunication from "./components/comunication/direct/Parent";
 import User from "./components/conditional/User";
 import EvenOrOdd from "./components/conditional/EvenOrOdd";
 import Products from "./components/loop/Products";
@@ -14,10 +15,13 @@ import React from "react";
 const App = () => (
     <div id="app" className="App">
         <div id="cards" className="Cards">
+            <Card title="Direct comunication" color="#59323C">
+                <DirectComunication />
+            </Card>
             <Card title="User" color="#9467bd">
                 <User user={{ name: "Douglas Mezuraro" }} />
             </Card>
-            <Card title="EvenOrOdd" color="#000">
+            <Card title="Even or Odd" color="#000">
                 <EvenOrOdd value={14} />
             </Card>
             <Card title="Products" color="#920024">
