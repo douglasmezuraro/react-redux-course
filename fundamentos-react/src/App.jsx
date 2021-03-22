@@ -1,4 +1,5 @@
 import "./App.css"
+import IndirectComunication from "./components/comunication/indirect/Parent";
 import DirectComunication from "./components/comunication/direct/Parent";
 import User from "./components/conditional/User";
 import EvenOrOdd from "./components/conditional/EvenOrOdd";
@@ -15,6 +16,9 @@ import React from "react";
 const App = () => (
     <div id="app" className="App">
         <div id="cards" className="Cards">
+            <Card title="Indirect comunication" color="#444">
+                <IndirectComunication />
+            </Card>
             <Card title="Direct comunication" color="#59323C">
                 <DirectComunication />
             </Card>
@@ -32,10 +36,10 @@ const App = () => (
             </Card>
             <Card title="Family" color="#00173d">
                 <Family lastName="Silva">
-                    <FamilyMember name="João" />
-                    <FamilyMember name="Ana" />
-                    <FamilyMember name="Guilherme" />
-                    <FamilyMember name="Laura" />
+                    <FamilyMember id={1} name="João" />
+                    <FamilyMember id={2} name="Ana" />
+                    <FamilyMember id={3} name="Guilherme" />
+                    <FamilyMember id={4} name="Laura" />
                 </Family>
             </Card>
             <Card title="Random" color="#6495ED">

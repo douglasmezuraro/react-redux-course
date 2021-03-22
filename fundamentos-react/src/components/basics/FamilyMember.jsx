@@ -1,10 +1,10 @@
 import React from "react";
 
 const FamilyMember = props => {
-    const { name, lastName } = props;
+    const { id, name, lastName } = props;
 
     return (
-        <div>
+        <div key={id}>
             <p>{name} {lastName}</p>
         </div>
     );
