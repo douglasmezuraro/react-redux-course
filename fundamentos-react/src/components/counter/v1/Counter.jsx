@@ -32,23 +32,23 @@ class Counter extends Component {
         });
     };
 
-    render() {
-        return (
-            <div className="Counter">
-                <div>
-                    <label htmlFor="valueInput"> Valor: </label>
-                    <input id="valueInput" value={this.state.value} readonly />
-                    <label htmlFor="stepInput"> Passo: </label>
-                    <input id="stepInput" type="number" value={this.state.step} onChange={this.handleStep} />
-                </div>
-                <div>
-                    <button onClick={this.dec}>-</button>
-                    <button onClick={this.reset}>0</button>
-                    <button onClick={this.inc}>+</button>
-                </div>
+    render = () => (
+        <div className="Counter">
+            <div>
+                <label htmlFor="valueInput"> Valor: </label>
+                <input id="valueInput" value={this.state.value} readonly />
             </div>
-        );
-    }
+            <div>
+                <label htmlFor="stepInput"> Passo: </label>
+                <input id="stepInput" type="number" value={this.state.step} onChange={this.handleStep} />
+            </div>
+            <div>
+                <button onClick={this.dec}>-</button>
+                <button onClick={this.reset}>0</button>
+                <button onClick={this.inc}>+</button>
+            </div>
+        </div>
+    );
 };
 
 export default Counter;

@@ -1,5 +1,5 @@
 import "./App.css";
-import "./components/counter/Counter";
+import "./components/counter/v1/Counter";
 import Input from "./components/form/input";
 import IndirectComunication from "./components/comunication/indirect/Parent";
 import DirectComunication from "./components/comunication/direct/Parent";
@@ -14,13 +14,18 @@ import Random from "./components/basics/Random";
 import WithArgument from "./components/basics/WithArgument";
 import First from "./components/basics/First";
 import React from "react";
-import Counter from "./components/counter/Counter";
+import CounterV1 from "./components/counter/v1/Counter";
+import CounterV2 from "./components/counter/v2/Counter";
 
 const App = () => (
     <div id="app" className="App">
         <div id="cards" className="Cards">
-            <Card title="Counter" >
-                <Counter />
+            <Card title="Counter V2" >
+                <CounterV2 />
+            </Card>
+
+            <Card title="Counter V1" >
+                <CounterV1 />
             </Card>
 
             <Card title="Input" >
