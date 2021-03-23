@@ -5,9 +5,9 @@ const Products = () => {
     const rows = ProductList.map(product => {
         return (
             <tr key={product.id}>
-                <th>{product.id}</th>
-                <th>{product.name}</th>
-                <th>R${product.price.toFixed(2)}</th>
+                <td>{product.id}</td>
+                <td>{product.name}</td>
+                <td>R${product.price.toFixed(2)}</td>
             </tr>
         );
     });

@@ -19,31 +19,39 @@ import Counter from "./components/counter/Counter";
 const App = () => (
     <div id="app" className="App">
         <div id="cards" className="Cards">
-            <Card title="Counter" color="#000">
+            <Card title="Counter" >
                 <Counter />
             </Card>
-            <Card title="Input" color="#1f77b4">
+
+            <Card title="Input" >
                 <Input />
             </Card>
-            <Card title="Indirect comunication" color="#444">
+
+            <Card title="Indirect comunication" >
                 <IndirectComunication />
             </Card>
-            <Card title="Direct comunication" color="#59323C">
+
+            <Card title="Direct comunication" >
                 <DirectComunication />
             </Card>
-            <Card title="User" color="#9467bd">
+
+            <Card title="User" >
                 <User user={{ name: "Douglas Mezuraro" }} />
             </Card>
-            <Card title="Even or Odd" color="#000">
+
+            <Card title="Even or Odd" >
                 <EvenOrOdd value={14} />
             </Card>
-            <Card title="Products" color="#920024">
+
+            <Card title="Products" >
                 <Products />
             </Card>
-            <Card title="Students" color="#ff7f0e">
+
+            <Card title="Students" >
                 <Students />
             </Card>
-            <Card title="Family" color="#00173d">
+
+            <Card title="Family" >
                 <Family lastName="Silva">
                     <FamilyMember id={1} name="João" />
                     <FamilyMember id={2} name="Ana" />
@@ -51,13 +59,16 @@ const App = () => (
                     <FamilyMember id={4} name="Laura" />
                 </Family>
             </Card>
-            <Card title="Random" color="#6495ED">
+
+            <Card title="Random" >
                 <Random min={5} max={600} />
             </Card>
-            <Card title="WithArgument" color="#1f77b4">
+
+            <Card title="WithArgument" >
                 <WithArgument first="Teste #1" second="Teste #2" third="Teste #3" />
             </Card>
-            <Card title="First" color="#b67cca">
+
+            <Card title="First" >
                 <First />
             </Card>
         </div>

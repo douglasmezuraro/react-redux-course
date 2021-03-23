@@ -4,8 +4,8 @@ import React from "react";
 const Card = props => {
     const { title, children, color } = props;
     const cardStyle = {
-        backgroundColor: color || '#F00',
-        borderColor: color || '#F00',
+        backgroundColor: color || '#000',
+        borderColor: color || '#000',
     }
     
     return (
