@@ -16,10 +16,15 @@ import First from "./components/basics/First";
 import React from "react";
 import CounterV1 from "./components/counter/v1/Counter";
 import CounterV2 from "./components/counter/v2/Counter";
+import Mega from "./components/mega/Mega";
 
 const App = () => (
     <div id="app" className="App">
         <div id="cards" className="Cards">
+            <Card title="MegaSena">
+                <Mega count={6} />
+            </Card>
+
             <Card title="Counter V2" >
                 <CounterV2 />
             </Card>
