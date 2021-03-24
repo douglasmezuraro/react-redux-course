@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 
 const Mega = ({ count }) => {
-    const [values, setValues] = useState(getArray())
+    const [values, setValues] = useState(sortNumbers)
 
-    function getArray() {
+    function sortNumbers() {
         let array = [];
         while (array.length < count) {
             let value = parseInt(Math.random() * 99) + 1;
@@ -14,18 +14,14 @@ const Mega = ({ count }) => {
         return array.sort((a, b) => a - b);
     };
 
-    function handleValues() {
-        setValues(getArray());
-    };
-
     return (
         <div>
-            <h3>Resultado da MegaSena</h3>
+            <h2>MegaSena</h2>
             <div>
-                {values.toString().replaceAll(',', ' ')}
+                {values.join(" ")}
             </div>
             <div>
-                <button onClick={_ => handleValues()}>Sortear números</button>
+                <button onClick={() => setValues(sortNumbers())}>Sortear números</button>
             </div>
         </div>
     );
