@@ -1,14 +1,15 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import "./index.css";
+import React, { Fragment } from "react";
+import ReactDOM from "react-dom";
+import reportWebVitals from "./reportWebVitals";
+import Calculator from "./main/Calculator";
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
+	<Fragment>
+		<h2>Calculadora do Satanás</h2>
+		<Calculator />
+	</Fragment>,
+	document.getElementById("root")
 );
 
 // If you want to start measuring performance in your app, pass a function
