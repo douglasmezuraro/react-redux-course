@@ -4,7 +4,7 @@ import Display from "../components/Display";
 import "./Calculator.css"
 
 const initialState = {
-    displayValue: '0',
+    displayValue: "0",
     clearDisplay: false,
     operation: null,
     values: [0, 0],
@@ -22,20 +22,25 @@ class Calculator extends Component {
 
     state = { ...initialState };
 
+    calculateValue = () => {
+        switch (this.state.operation) {
+            case "+": return this.state.values[0] + this.state.values[1];
+            case "-": return this.state.values[0] - this.state.values[1];
+            case "*": return this.state.values[0] * this.state.values[1];
+            case "/": return this.state.values[0] / this.state.values[1];
+            default: return 0.0;
+        }
+    }
     setOperation(operation) {
         if (this.state.current === 0) {
             this.setState({ operation, current: 1, clearDisplay: true });
         } else {
-            const equals = operation === '=';
-            const currentOperation = this.state.operation;
-            const values = [...this.state.values];
-
-            values[0] = eval(`${values[0]} ${currentOperation} ${values[1]}`);
-            values[1] = 0.0;
+            const equals = operation === "=";
+            const calculatedValue = this.calculateValue();
 
             this.setState({
-                values,
-                displayValue: values[0],
+                values: [calculatedValue, 0.0],
+                displayValue: calculatedValue,
                 operation: equals ? null : operation,
                 current: equals ? 0 : 1,
                 clearDisplay: true,
@@ -44,16 +49,16 @@ class Calculator extends Component {
     };
 
     setDigit(digit) {
-        if (digit === "." && this.state.displayValue.includes(".")) {
+        if (digit === "." && typeof this.state.displayValue === "string" && this.state.displayValue.includes(".")) {
             return;
         };
 
-        const clearDisplay = this.state.displayValue === "0" || this.state.clearDisplay;
+        const clearDisplay = (this.state.displayValue === "0" && digit !== '.') || this.state.clearDisplay;
         const displayValue = clearDisplay ? digit : this.state.displayValue + digit;
 
         this.setState({ displayValue, clearDisplay: false });
 
-        if (digit !== '.') {
+        if (digit !== ".") {
             const index = this.state.current;
             const newValue = parseFloat(displayValue);
             const values = [...this.state.values]
