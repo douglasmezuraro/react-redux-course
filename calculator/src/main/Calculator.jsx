@@ -2,6 +2,15 @@ import React, { Component } from "react";
 import Button from "../components/Button";
 import Display from "../components/Display";
 import "./Calculator.css"
+
+const initialState = {
+    displayValue: '0',
+    clearDisplay: false,
+    operation: null,
+    acc: 0.0,
+    current: 0.0,
+}
+
 class Calculator extends Component {
 
     constructor(props) {
@@ -11,22 +20,65 @@ class Calculator extends Component {
         this.clearMemory = this.clearMemory.bind(this);
     };
 
+    state = { ...initialState };
+
+    newValue() {
+        if (this.state.operation === '+') {
+            return this.state.acc + this.state.current;
+        }
+        else if (this.state.operation === '-') {
+            return this.state.acc - this.state.current;
+        }
+        else if (this.state.operation === '*') {
+            return this.state.acc * this.state.current;
+        }
+        else if (this.state.operation === '/') {
+            return this.state.acc / this.state.current;
+        };
+    };
+
     setOperation(operation) {
-        //TODO: implement the method "setOperation".
+        if (operation === '=') {
+            let newValue = this.newValue()
+            this.setState({
+                acc: newValue,
+                clearDisplay: false,
+                displayValue: newValue.toString(),
+                operation: null,
+                current: newValue,
+            })
+        } else {
+            this.setState({
+                acc: this.state.current,
+                clearDisplay: true,
+                operation: operation,
+            });
+        }
     };
 
     setDigit(digit) {
-        //TODO: implement the method "setDigit".
+        if (digit === "." && this.state.displayValue.includes(".")) {
+            return;
+        };
+
+        const clearDisplay = this.state.displayValue === "0" || this.state.clearDisplay;
+        const displayValue = clearDisplay ? digit : this.state.displayValue + digit;
+
+        this.setState({
+            displayValue,
+            clearDisplay: false,
+            current: parseFloat(displayValue),
+        });
     };
 
     clearMemory() {
-        //TODO: implement the method "clearMemory".
+        this.setState({ ...initialState });
     };
 
     render() {
         return (
             <div className="calculator">
-                <Display value="0" />
+                <Display value={this.state.displayValue} />
                 <Button label="AC" onClick={this.clearMemory} triple />
                 <Button label="/" onClick={this.setOperation} operation />
                 <Button label="7" onClick={this.setDigit} />

@@ -15,4 +15,3 @@ const Button = ({ label, onClick, operation, double, triple }) =>
     </button>
 
 export default Button;
-
