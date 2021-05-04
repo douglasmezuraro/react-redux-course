@@ -54,7 +54,7 @@ class Calculator extends Component {
             return;
         };
 
-        const clearDisplay = (this.state.displayValue === "0" && digit !== '.') || this.state.clearDisplay;
+        const clearDisplay = (this.state.displayValue === "0" && digit !== ".") || this.state.clearDisplay;
         const displayValue = clearDisplay ? digit : this.state.displayValue + digit;
 
         this.setState({ displayValue, clearDisplay: false });
@@ -93,7 +93,7 @@ class Calculator extends Component {
             <Button label="+" onClick={this.setOperation} operation />
             <Button label="0" onClick={this.setDigit} double />
             <Button label="." onClick={this.setDigit} />
-            <Button label='=' onClick={this.setOperation} operation />
+            <Button label="=" onClick={this.setOperation} operation />
         </div>
     );
 };

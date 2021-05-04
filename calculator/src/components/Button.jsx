@@ -5,9 +5,9 @@ const Button = ({ label, onClick, operation, double, triple }) =>
     <button
         className={`
             button
-            ${operation ? 'operation' : ''}
-            ${double ? 'double' : ''}
-            ${triple ? 'triple' : ''}
+            ${operation ? "operation" : ""}
+            ${double ? "double" : ""}
+            ${triple ? "triple" : ""}
         `}
         onClick={() => onClick && onClick(label)}
     >
