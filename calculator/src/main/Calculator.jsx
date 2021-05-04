@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Button from "../components/Button";
 import Display from "../components/Display";
-import "./Calculator.css"
+import "./Calculator.css";
 
 const initialState = {
     displayValue: "0",
@@ -9,7 +9,7 @@ const initialState = {
     operation: null,
     values: [0, 0],
     current: 0,
-}
+};
 
 class Calculator extends Component {
 
@@ -29,8 +29,9 @@ class Calculator extends Component {
             case "*": return this.state.values[0] * this.state.values[1];
             case "/": return this.state.values[0] / this.state.values[1];
             default: return 0.0;
-        }
-    }
+        };
+    };
+
     setOperation(operation) {
         if (this.state.current === 0) {
             this.setState({ operation, current: 1, clearDisplay: true });
@@ -61,12 +62,11 @@ class Calculator extends Component {
         if (digit !== ".") {
             const index = this.state.current;
             const newValue = parseFloat(displayValue);
-            const values = [...this.state.values]
+            const values = [...this.state.values];
 
             values[index] = newValue;
 
             this.setState({ values });
-
         };
     };
 
@@ -74,30 +74,28 @@ class Calculator extends Component {
         this.setState({ ...initialState });
     };
 
-    render() {
-        return (
-            <div className="calculator">
-                <Display value={this.state.displayValue} />
-                <Button label="AC" onClick={this.clearMemory} triple />
-                <Button label="/" onClick={this.setOperation} operation />
-                <Button label="7" onClick={this.setDigit} />
-                <Button label="8" onClick={this.setDigit} />
-                <Button label="9" onClick={this.setDigit} />
-                <Button label="*" onClick={this.setOperation} operation />
-                <Button label="4" onClick={this.setDigit} />
-                <Button label="5" onClick={this.setDigit} />
-                <Button label="6" onClick={this.setDigit} />
-                <Button label="-" onClick={this.setOperation} operation />
-                <Button label="1" onClick={this.setDigit} />
-                <Button label="2" onClick={this.setDigit} />
-                <Button label="3" onClick={this.setDigit} />
-                <Button label="+" onClick={this.setOperation} operation />
-                <Button label="0" onClick={this.setDigit} double />
-                <Button label="." onClick={this.setDigit} />
-                <Button label='=' onClick={this.setOperation} operation />
-            </div>
-        );
-    };
+    render = () => (
+        <div className="calculator">
+            <Display value={this.state.displayValue} />
+            <Button label="AC" onClick={this.clearMemory} triple />
+            <Button label="/" onClick={this.setOperation} operation />
+            <Button label="7" onClick={this.setDigit} />
+            <Button label="8" onClick={this.setDigit} />
+            <Button label="9" onClick={this.setDigit} />
+            <Button label="*" onClick={this.setOperation} operation />
+            <Button label="4" onClick={this.setDigit} />
+            <Button label="5" onClick={this.setDigit} />
+            <Button label="6" onClick={this.setDigit} />
+            <Button label="-" onClick={this.setOperation} operation />
+            <Button label="1" onClick={this.setDigit} />
+            <Button label="2" onClick={this.setDigit} />
+            <Button label="3" onClick={this.setDigit} />
+            <Button label="+" onClick={this.setOperation} operation />
+            <Button label="0" onClick={this.setDigit} double />
+            <Button label="." onClick={this.setDigit} />
+            <Button label='=' onClick={this.setOperation} operation />
+        </div>
+    );
 };
 
 export default Calculator;

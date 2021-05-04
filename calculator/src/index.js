@@ -5,11 +5,10 @@ import reportWebVitals from "./reportWebVitals";
 import Calculator from "./main/Calculator";
 
 ReactDOM.render(
-	<Fragment>
-		<h2>Calculadora do Satanás</h2>
-		<Calculator />
-	</Fragment>,
-	document.getElementById("root")
+    <Fragment>
+        <Calculator />
+    </Fragment>,
+    document.getElementById("root")
 );
 
 // If you want to start measuring performance in your app, pass a function
