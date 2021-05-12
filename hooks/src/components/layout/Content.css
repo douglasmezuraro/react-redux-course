@@ -1,0 +1,12 @@
+.Content {
+    background-color: #ececec;
+    display: flex;
+    flex-grow: 1;
+    padding: 30px;
+}
+
+.Content > * {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
