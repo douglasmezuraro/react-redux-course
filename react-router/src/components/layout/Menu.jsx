@@ -12,6 +12,12 @@ const Menu = () => (
                 <li>
                     <Link to='/about'>Sobre</Link>
                 </li>
+                <li>
+                    <Link to='/param/123'>Parâmetro #1</Link>
+                </li>
+                <li>
+                    <Link to='/param/abc'>Parâmetro #2</Link>
+                </li>
             </ul>
         </nav>
     </aside>
