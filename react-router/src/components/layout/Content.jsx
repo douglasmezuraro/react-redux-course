@@ -3,6 +3,7 @@ import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 import About from '../../views/examples/About';
 import Home from '../../views/examples/Home';
+import NotFound from '../../views/examples/NotFound';
 import Param from '../../views/examples/Param';
 
 const Content = () => (
@@ -19,6 +20,9 @@ const Content = () => (
             </Route>
             <Route exact path='/param/:id'>
                 <Param />
+            </Route>
+            <Route path='*'>
+                <NotFound />
             </Route>
         </Switch>
     </main>

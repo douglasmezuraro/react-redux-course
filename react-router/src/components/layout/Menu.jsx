@@ -18,9 +18,6 @@ const Menu = () => (
                 <li>
                     <Link to='/param/abc'>Parâmetro #2</Link>
                 </li>
-                <li>
-                    <Link to='/notfound'>Not Found</Link>
-                </li>
             </ul>
         </nav>
     </aside>
