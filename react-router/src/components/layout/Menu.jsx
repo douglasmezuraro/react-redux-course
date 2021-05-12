@@ -7,7 +7,7 @@ const Menu = () => (
         <nav>
             <ul>
                 <li>
-                    <Link to='/home'>Início</Link>
+                    <Link to='/'>Início</Link>
                 </li>
                 <li>
                     <Link to='/about'>Sobre</Link>
@@ -17,6 +17,9 @@ const Menu = () => (
                 </li>
                 <li>
                     <Link to='/param/abc'>Parâmetro #2</Link>
+                </li>
+                <li>
+                    <Link to='/notfound'>Not Found</Link>
                 </li>
             </ul>
         </nav>

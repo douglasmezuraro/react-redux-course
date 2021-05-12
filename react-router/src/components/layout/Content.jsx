@@ -8,16 +8,16 @@ import Param from '../../views/examples/Param';
 const Content = () => (
     <main className='Content'>
         <Switch>
-            <Route path='/about'>
-                <About />
-            </Route>
-            <Route path='/home'>
+            <Route exact path='/'>
                 <Home />
             </Route>
-            <Route path='/param/:id'>
+            <Route exact path='/about'>
+                <About />
+            </Route>
+            <Route exact path='/param/:id'>
                 <Param />
             </Route>
-            <Route path='/param/:id'>
+            <Route exact path='/param/:id'>
                 <Param />
             </Route>
         </Switch>
