@@ -3,12 +3,23 @@ import PageTitle from '../../components/layout/PageTitle';
 import SectionTitle from '../../components/layout/SectionTitle';
 
 const UseRef = () => {
-    const [value, setValue] = useState('');
+    const [valueA, setValueA] = useState('');
+    const [valueB, setValueB] = useState('');
+
     const counter = useRef(0);
 
+    const editA = useRef(null);
+    const editB = useRef(null);
+
     useEffect(() => {
-        counter.current = counter.current + 1;
-    }, [value]);
+        counter.current++;
+        editB.current.focus();
+    }, [valueA]);
+
+    useEffect(() => {
+        counter.current++;
+        editA.current.focus();
+    }, [valueB]);
 
     return (
         <div className='UseRef'>
@@ -17,16 +28,22 @@ const UseRef = () => {
                 subtitle='Retorna um objeto mutável com a propriedade .current!'
             />
 
+            <div className>
+                <span className='text'>Valor: </span>
+                <span className='text'>{valueA.concat(valueB)}</span>
+                <span className='text'>[</span>
+                <span className='text red'>{counter.current}</span>
+                <span className='text'>]</span>
+            </div>
+
             <SectionTitle title='Exercício #01' />
             <div className='center'>
-                <div className>
-                    <span className='text'>Valor: </span>
-                    <span className='text'>{value}</span>
-                    <span className='text'>[</span>
-                    <span className='text red'>{counter.current}</span>
-                    <span className='text'>]</span>
-                </div>
-                <input type='text' className='input' value={value} onChange={e => setValue(e.target.value)} />
+                <input type='text' className='input' ref={editA} value={valueA} onChange={e => setValueA(e.target.value)} />
+            </div>
+
+            <SectionTitle title='Exercício #02' />
+            <div className='center'>
+                <input type='text' className='input' ref={editB} value={valueB} onChange={e => setValueB(e.target.value)} />
             </div>
         </div>
     );
