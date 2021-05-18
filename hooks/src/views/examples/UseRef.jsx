@@ -2,19 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import PageTitle from '../../components/layout/PageTitle';
 import SectionTitle from '../../components/layout/SectionTitle';
 
-const merge = (a, b) => {
-    let result = [];
-    
-    a.split('').forEach(element => {
-        result.push(element)
-    });
-    
-    b.split('').forEach(element => {
-        result.push(element);
-    });
-    
-    return result.sort();
-};
+const merge = (a, b) => ([...a, ...b].sort());
 
 const UseRef = () => {
     const [valueA, setValueA] = useState('');
