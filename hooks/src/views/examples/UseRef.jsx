@@ -2,6 +2,20 @@ import React, { useEffect, useRef, useState } from 'react';
 import PageTitle from '../../components/layout/PageTitle';
 import SectionTitle from '../../components/layout/SectionTitle';
 
+const merge = (a, b) => {
+    let result = [];
+    
+    a.split('').forEach(element => {
+        result.push(element)
+    });
+    
+    b.split('').forEach(element => {
+        result.push(element);
+    });
+    
+    return result.sort();
+};
+
 const UseRef = () => {
     const [valueA, setValueA] = useState('');
     const [valueB, setValueB] = useState('');
@@ -30,7 +44,7 @@ const UseRef = () => {
 
             <div className>
                 <span className='text'>Valor: </span>
-                <span className='text'>{valueA.concat(valueB)}</span>
+                <span className='text'>{merge(valueA, valueB)}</span>
                 <span className='text'>[</span>
                 <span className='text red'>{counter.current}</span>
                 <span className='text'>]</span>
