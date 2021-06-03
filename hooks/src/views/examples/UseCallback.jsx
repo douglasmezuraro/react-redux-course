@@ -9,14 +9,12 @@ const UseCallback = () => {
 
     return (
         <div className='UseCallback'>
-            <PageTitle
-                title='Hook UseCallback'
-                subtitle='Retorna uma função memoizada!'
-            />
-            <div className='center'>
-                <span className='text'>{counter}</span>
-                <UseCallbackButtons inc={inc} />
-            </div>
+            <PageTitle title='Hook UseCallback' subtitle='Retorna uma função memoizada!'>
+                <div className='center'>
+                    <span className='text'>{counter}</span>
+                    <UseCallbackButtons inc={inc} />
+                </div>
+            </PageTitle>
         </div>
     );
 };

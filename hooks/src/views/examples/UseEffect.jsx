@@ -24,30 +24,29 @@ const UseEffect = () => {
 
     return (
         <div className='UseEffect'>
-            <PageTitle
-                title='Hook UseEffect'
-                subtitle='Permite executar efeitos colaterais em componentes funcionais!'
-            />
-
-            <div className='center'>
-                <input type='number' className='text' value={number} onChange={e => setNumber(e.target.value)} />
-            </div>
-
-            <SectionTitle title='Exercício #01' />
-            <div className='center'>
-                <div>
-                    <span className="text">Fatorial: </span>
-                    <span className="text red">{factorial === -1 ? 'Não existe' : factorial}</span>
+            <PageTitle title='Hook UseEffect' subtitle='Permite executar efeitos colaterais em componentes funcionais!' >
+                <div className='center'>
+                    <input type='number' className='text' value={number} onChange={e => setNumber(e.target.value)} />
                 </div>
-            </div>
 
-            <SectionTitle title='Exercício #02' />
-            <div className='center'>
-                <div>
-                    <span className="text">Status: </span>
-                    <span className='text red'>{isEven ? 'Par' : 'Ímpar'}</span>
-                </div>
-            </div>
+                <SectionTitle title='Exercício #01'>
+                    <div className='center'>
+                        <div>
+                            <span className="text">Fatorial: </span>
+                            <span className="text red">{factorial === -1 ? 'Não existe' : factorial}</span>
+                        </div>
+                    </div>
+                </SectionTitle>
+
+                <SectionTitle title='Exercício #02'>
+                    <div className='center'>
+                        <div>
+                            <span className="text">Status: </span>
+                            <span className='text red'>{isEven ? 'Par' : 'Ímpar'}</span>
+                        </div>
+                    </div>
+                </SectionTitle>
+            </PageTitle>
         </div>
     );
 };

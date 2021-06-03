@@ -18,18 +18,15 @@ const UseMemo = () => {
 
     return (
         <div className='UseMemo'>
-            <PageTitle
-                title='Hook UseMemo'
-                subtitle='Retorna um valor memoizado!'
-            />
+            <PageTitle title='Hook UseMemo' subtitle='Retorna um valor memoizado!' >
+                <div className='center'>
+                    <input type='number' className='input' value={a} onChange={e => setA(parseInt(e.target.value))} />
+                    <input type='number' className='input' value={b} onChange={e => setB(parseInt(e.target.value))} />
+                    <input type='number' className='input' value={c} onChange={e => setC(parseInt(e.target.value))} />
 
-            <div className='center'>
-                <input type='number' className='input' value={a} onChange={e => setA(parseInt(e.target.value))} />
-                <input type='number' className='input' value={b} onChange={e => setB(parseInt(e.target.value))} />
-                <input type='number' className='input' value={c} onChange={e => setC(parseInt(e.target.value))} />
-
-                <span className='text'>{result}</span>
-            </div>
+                    <span className='text'>{result}</span>
+                </div>
+            </PageTitle>
         </div>
     );
 };

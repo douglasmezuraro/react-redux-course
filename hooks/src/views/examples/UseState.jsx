@@ -8,24 +8,23 @@ const UseState = () => {
 
     return (
         <div className='UseState'>
-            <PageTitle
-                title='Hook UseState'
-                subtitle='Estado em componentes funcionais!'
-            />
-
-            <SectionTitle title='Exercício #1' />
-            <div className='center'>
-                <span className='text'>
-                    {counter}
-                    <div>
-                        <button className='btn' onClick={() => setCounter(counter - 1)}>-1</button>
-                        <button className='btn' onClick={() => setCounter(counter + 1)}>+1</button>
+            <PageTitle title='Hook UseState' subtitle='Estado em componentes funcionais!'>
+                <SectionTitle title='Exercício #1'>
+                    <div className='center'>
+                        <span className='text'>
+                            {counter}
+                            <div>
+                                <button className='btn' onClick={() => setCounter(counter - 1)}>-1</button>
+                                <button className='btn' onClick={() => setCounter(counter + 1)}>+1</button>
+                            </div>
+                        </span>
                     </div>
-                </span>
-            </div>
+                </SectionTitle>
 
-            <SectionTitle title='Exercício #2' />
-            <input type='text' className='text' value={name} onChange={e => setName(e.target.value)} />
+                <SectionTitle title='Exercício #2'>
+                    <input type='text' className='text' value={name} onChange={e => setName(e.target.value)} />
+                </SectionTitle>
+            </PageTitle>
         </div>
     );
 };
