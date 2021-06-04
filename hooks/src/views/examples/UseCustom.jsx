@@ -8,7 +8,12 @@ const UseRef = () => {
     const [counter, inc, dec] = useCounter();
     const response = useFetch('get', 'http://files.cod3r.com.br/curso-react/estados.json');
 
-    const showStates = states => states.map(state => <li key={state.sigla}>{state.nome} - {state.sigla}</li>);
+    const showStates = states => states.map(state =>
+        <tr>
+            <td>{state.nome}</td>
+            <td>{state.sigla}</td>
+        </tr>
+    );
 
     return (
         <div className='UseCustom'>
@@ -25,9 +30,13 @@ const UseRef = () => {
 
                 <SectionTitle title='Exercício #02'>
                     <div className='center'>
-                        <ul>
-                            {response.data ? showStates(response.data) : false}
-                        </ul>
+                        <table>
+                            <tr>
+                                <th>Nome</th>
+                                <th>Sigla</th>
+                            </tr>
+                            {response.data ? showStates(response.data) : null}
+                        </table>
                     </div>
                 </SectionTitle>
             </PageTitle>

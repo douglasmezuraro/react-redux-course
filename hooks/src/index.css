@@ -37,3 +37,17 @@ body {
     justify-content: center;
     text-align: center;
 }
+
+td, th {
+    border: 1px solid rgb(190, 190, 190);
+    padding: 10px;
+}
+
+td {
+    text-align: center;
+}
+
+table {
+    border-collapse: collapse;    
+    margin: 10px;
+}
