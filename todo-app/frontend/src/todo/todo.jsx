@@ -12,32 +12,37 @@ export default class Todo extends Component {
     constructor(props) {
         super(props);
         this.state = { description: '', list: [] };
-        this.handleAdd = this.handleAdd.bind(this);
-        this.handleChange = this.handleChange.bind(this);
+        this.onAdd = this.onAdd.bind(this);
+        this.onChange = this.onChange.bind(this);
+        this.onRemove = this.onRemove.bind(this);
+        this.onRefresh = this.onRefresh.bind(this);
+
+        this.onRefresh();
     };
 
-    handleAdd() {
+    onAdd() {
         const { description } = this.state;
-
-        Axios.post(URL, { description }).then(response => {
-            if (response.status == 201) {
-                console.log('OK!');
-            } else {
-                console.log('Erro!');
-            };
-        });
+        Axios.post(URL, { description }).then(() => this.onRefresh());
     };
 
-    handleChange(e) {
+    onChange(e) {
         this.setState({ ...this.state, description: e.target.value });
-    }
+    };
+
+    onRemove(todo) {
+        Axios.delete(`${URL}/${todo._id}`).then(() => this.onRefresh());
+    };
+
+    onRefresh() {
+        Axios.get(`${URL}?sort=createdAt`).then(response => this.setState({ ...this.state, description: '', list: response.data }));
+    };
 
     render() {
         return (
             <div>
                 <PageHeader name='Tarefas' small='Cadastro' />
-                <TodoForm description={this.state.description} handleAdd={this.handleAdd} handleChange={this.handleChange} />
-                <TodoList />
+                <TodoForm description={this.state.description} onAdd={this.onAdd} onChange={this.onChange} />
+                <TodoList data={this.state.list} onRemove={this.onRemove} />
             </div>
         );
     };
