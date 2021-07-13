@@ -38,11 +38,11 @@ export default class Todo extends Component {
     };
 
     onMarkAsDone(todo) {
-        Axios.put(`${URL}/${todo._id}`, { ...todo, done: true }).then(() => this.onRefresh(this.state.description));
+        Axios.put(`${URL}/${todo._id}`, { ...todo, done: true, doneAt: Date.now() }).then(() => this.onRefresh(this.state.description));
     };
 
     onMarkAsPending(todo) {
-        Axios.put(`${URL}/${todo._id}`, { ...todo, done: false }).then(() => this.onRefresh(this.state.description));
+        Axios.put(`${URL}/${todo._id}`, { ...todo, done: false, doneAt: null }).then(() => this.onRefresh(this.state.description));
     };
 
     onRemove(todo) {
@@ -50,7 +50,7 @@ export default class Todo extends Component {
     };
 
     onRefresh(description = '') {
-        const filter = description ? `&description__regex=/${description}/` : ''
+        const filter = description ? `&description__regex=/${description}/` : '';
         Axios.get(`${URL}?sort=-createdAt?${filter}`).then(response => this.setState({ ...this.state, description, list: response.data }));
     };
 

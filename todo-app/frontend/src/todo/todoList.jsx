@@ -4,12 +4,13 @@ import IconButton from '../template/iconButton';
 
 const TodoList = props => {
 
-    const renderRows = () => {
-        const { data } = props || [];
+    const renderRows = () => props.data.map(todo => {
+        const className = todo.done ? 'markedAsDone' : '';
+        const title = `Criado em: ${todo.createdAt}\n` + (todo.done ? `Finalizado em: ${todo.doneAt}` : '');
 
-        return data.map(todo =>
+        return (
             <tr key={todo._id}>
-                <td className={todo.done ? 'markedAsDone' : ''}>
+                <td className={className} title={title}>
                     {todo.description}
                 </td>
                 <td>
@@ -19,7 +20,7 @@ const TodoList = props => {
                 </td>
             </tr>
         );
-    };
+    });
 
     return (
         <table className='table'>

@@ -1,4 +1,5 @@
 import React from 'react';
+
 import If from '../template/if';
 
 const IconButton = props => (
