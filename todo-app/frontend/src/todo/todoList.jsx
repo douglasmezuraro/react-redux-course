@@ -9,11 +9,13 @@ const TodoList = props => {
 
         return data.map(todo =>
             <tr key={todo._id}>
-                <td>
+                <td className={todo.done ? 'markedAsDone' : ''}>
                     {todo.description}
                 </td>
                 <td>
-                    <IconButton style='danger' icon='trash-o' onClick={() => props.onRemove(todo)} />
+                    <IconButton style='success' icon='check' show={!todo.done} onClick={() => props.onMarkAsDone(todo)} />
+                    <IconButton style='warning' icon='undo' show={todo.done} onClick={() => props.onMarkAsPending(todo)} />
+                    <IconButton style='danger' icon='trash-o' show={todo.done} onClick={() => props.onRemove(todo)} />
                 </td>
             </tr>
         );
