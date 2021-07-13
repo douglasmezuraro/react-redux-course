@@ -11,7 +11,8 @@ const TodoForm = props => (
         </Grid>
 
         <Grid cols='12 3 2'>
-            <IconButton style='primary' icon='plus' onClick={props.onAdd} />
+            <IconButton show={true} style='primary' icon='plus' onClick={props.onAdd} />
+            <IconButton show={true} style='info' icon='search' onClick={props.onSearch} />
         </Grid>
     </div>
 );

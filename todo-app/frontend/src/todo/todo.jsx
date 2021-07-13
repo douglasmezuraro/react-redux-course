@@ -18,6 +18,7 @@ export default class Todo extends Component {
         this.onMarkAsPending = this.onMarkAsPending.bind(this);
         this.onRemove = this.onRemove.bind(this);
         this.onRefresh = this.onRefresh.bind(this);
+        this.onSearch = this.onSearch.bind(this);
 
         this.onRefresh();
     };
@@ -32,26 +33,31 @@ export default class Todo extends Component {
     };
 
     onMarkAsDone(todo) {
-        Axios.put(`${URL}/${todo._id}`, { ...todo, done: true }).then(() => this.onRefresh());
+        Axios.put(`${URL}/${todo._id}`, { ...todo, done: true }).then(() => this.onRefresh(this.state.description));
     };
 
     onMarkAsPending(todo) {
-        Axios.put(`${URL}/${todo._id}`, { ...todo, done: false }).then(() => this.onRefresh());
+        Axios.put(`${URL}/${todo._id}`, { ...todo, done: false }).then(() => this.onRefresh(this.state.description));
     };
 
     onRemove(todo) {
-        Axios.delete(`${URL}/${todo._id}`).then(() => this.onRefresh());
+        Axios.delete(`${URL}/${todo._id}`).then(() => this.onRefresh(this.state.description));
     };
 
-    onRefresh() {
-        Axios.get(`${URL}?sort=createdAt`).then(response => this.setState({ ...this.state, description: '', list: response.data }));
+    onRefresh(description='') {
+        const filter = description ? `&description__regex=/${description}/` : ''
+        Axios.get(`${URL}?sort=-createdAt?${filter}`).then(response => this.setState({ ...this.state, description, list: response.data }));
+    };
+
+    onSearch() {
+        this.onRefresh(this.state.description);
     };
 
     render() {
         return (
             <div>
                 <PageHeader name='Tarefas' small='Cadastro' />
-                <TodoForm description={this.state.description} onAdd={this.onAdd} onChange={this.onChange} />
+                <TodoForm description={this.state.description} onAdd={this.onAdd} onChange={this.onChange} onSearch={this.onSearch} />
                 <TodoList data={this.state.list} onMarkAsDone={this.onMarkAsDone} onMarkAsPending={this.onMarkAsPending} onRemove={this.onRemove} />
             </div>
         );
