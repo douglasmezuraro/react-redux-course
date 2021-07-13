@@ -35,7 +35,7 @@ export default class Todo extends Component {
 
     onClear() {
         this.onRefresh();
-    }
+    };
 
     onMarkAsDone(todo) {
         Axios.put(`${URL}/${todo._id}`, { ...todo, done: true }).then(() => this.onRefresh(this.state.description));
