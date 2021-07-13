@@ -28,7 +28,7 @@ const TodoList = props => {
                     <th>
                         Descrição
                     </th>
-                    <th>
+                    <th className='tableActions'>
                         Ações
                     </th>
                 </tr>

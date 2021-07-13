@@ -14,6 +14,7 @@ export default class Todo extends Component {
         this.state = { description: '', list: [] };
         this.onAdd = this.onAdd.bind(this);
         this.onChange = this.onChange.bind(this);
+        this.onClear = this.onClear.bind(this);
         this.onMarkAsDone = this.onMarkAsDone.bind(this);
         this.onMarkAsPending = this.onMarkAsPending.bind(this);
         this.onRemove = this.onRemove.bind(this);
@@ -32,6 +33,10 @@ export default class Todo extends Component {
         this.setState({ ...this.state, description: e.target.value });
     };
 
+    onClear() {
+        this.onRefresh();
+    }
+
     onMarkAsDone(todo) {
         Axios.put(`${URL}/${todo._id}`, { ...todo, done: true }).then(() => this.onRefresh(this.state.description));
     };
@@ -44,7 +49,7 @@ export default class Todo extends Component {
         Axios.delete(`${URL}/${todo._id}`).then(() => this.onRefresh(this.state.description));
     };
 
-    onRefresh(description='') {
+    onRefresh(description = '') {
         const filter = description ? `&description__regex=/${description}/` : ''
         Axios.get(`${URL}?sort=-createdAt?${filter}`).then(response => this.setState({ ...this.state, description, list: response.data }));
     };
@@ -57,8 +62,17 @@ export default class Todo extends Component {
         return (
             <div>
                 <PageHeader name='Tarefas' small='Cadastro' />
-                <TodoForm description={this.state.description} onAdd={this.onAdd} onChange={this.onChange} onSearch={this.onSearch} />
-                <TodoList data={this.state.list} onMarkAsDone={this.onMarkAsDone} onMarkAsPending={this.onMarkAsPending} onRemove={this.onRemove} />
+                <TodoForm
+                    description={this.state.description}
+                    onAdd={this.onAdd}
+                    onChange={this.onChange}
+                    onClear={this.onClear}
+                    onSearch={this.onSearch} />
+                <TodoList
+                    data={this.state.list}
+                    onMarkAsDone={this.onMarkAsDone}
+                    onMarkAsPending={this.onMarkAsPending}
+                    onRemove={this.onRemove} />
             </div>
         );
     };
