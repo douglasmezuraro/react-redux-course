@@ -22,9 +22,9 @@ const TodoForm = props => {
             </Grid>
 
             <Grid cols='12 3 2'>
-                <IconButton show={true} style='primary' icon='plus' onClick={props.onAdd} />
-                <IconButton show={true} style='info' icon='search' onClick={props.onSearch} />
-                <IconButton show={true} style='warning' icon='close' onClick={props.onClear} />
+                <IconButton show={true} style='primary' title='Adicionar' icon='plus' onClick={props.onAdd} />
+                <IconButton show={true} style='info' title='Pesquisar' icon='search' onClick={props.onSearch} />
+                <IconButton show={true} style='warning' title='Limpar pesquisa' icon='close' onClick={props.onClear} />
             </Grid>
         </div>
     );

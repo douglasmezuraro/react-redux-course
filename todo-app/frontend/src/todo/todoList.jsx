@@ -13,9 +13,9 @@ const TodoList = props => {
                     {todo.description}
                 </td>
                 <td>
-                    <IconButton style='success' icon='check' show={!todo.done} onClick={() => props.onMarkAsDone(todo)} />
-                    <IconButton style='warning' icon='undo' show={todo.done} onClick={() => props.onMarkAsPending(todo)} />
-                    <IconButton style='danger' icon='trash-o' show={todo.done} onClick={() => props.onRemove(todo)} />
+                    <IconButton style='success' title='Marcar como concluído' icon='check' show={!todo.done} onClick={() => props.onMarkAsDone(todo)} />
+                    <IconButton style='warning' title='Marcar como pendente' icon='undo' show={todo.done} onClick={() => props.onMarkAsPending(todo)} />
+                    <IconButton style='danger' title='Remover' icon='trash-o' show={todo.done} onClick={() => props.onRemove(todo)} />
                 </td>
             </tr>
         );
