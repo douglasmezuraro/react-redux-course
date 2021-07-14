@@ -30,7 +30,7 @@ const Card = props => (
             </span>
         </div>
         <div className='Content'>
-            {props.chidren}
+            {props.children}
         </div>
     </div >
 );
