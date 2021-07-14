@@ -2,12 +2,12 @@ import React from 'react';
 
 import Card from './Card';
 
-const Average = () => (
+const Average = props => (
     <Card purple title='Média dos Números'>
         <div>
             <span>
                 <span>Resultado: </span>
-                <strong>5</strong>
+                <strong>{(parseInt(props.max) + parseInt(props.min)) / 2}</strong>
             </span>
         </div>
     </Card>
