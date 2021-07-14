@@ -1,7 +1,9 @@
 import './App.css';
 
-import Card from './components/Card';
+import Average from './components/Average';
 import Interval from './components/Interval';
+import Random from './components/Random';
+import Sum from './components/Sum';
 
 const App = () => (
     <div className='App'>
@@ -9,11 +11,11 @@ const App = () => (
         <div>
             <div className='row'>
                 <Interval />
-                <Card purple title='Card #02' ></Card>
             </div>
             <div className='row'>
-                <Card green title='Card #03' ></Card>
-                <Card red title='Card #04' ></Card>
+                <Average />
+                <Sum />
+                <Random />
             </div>
         </div>
     </div>
