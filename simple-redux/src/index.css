@@ -1,7 +1,7 @@
 body {
+    color: white;
     background-color: #222;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-size: 2rem;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    color: #fff;
     margin: 30px;
 }

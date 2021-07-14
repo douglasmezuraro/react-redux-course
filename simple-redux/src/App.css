@@ -1,13 +1,13 @@
 .App {
-    align-items: center;
     display: flex;
     flex-direction: column;  
+    text-align: center;
 }
 
 h1 {
     font-weight: 200;
 }
 
-.line {
+.row {
     display: flex;
 }
