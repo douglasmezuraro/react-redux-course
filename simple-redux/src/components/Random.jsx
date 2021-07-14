@@ -2,12 +2,12 @@ import React from 'react';
 
 import Card from './Card';
 
-const Random = props => (
+const Random = () => (
     <Card green title='Sorteio de um Número'>
         <div>
             <span>
                 <span>Número: </span>
-                <strong>{parseInt(Math.random() * (props.max - props.min) + props.min)}</strong>
+                <strong>{7}</strong>
             </span>
         </div>
     </Card>

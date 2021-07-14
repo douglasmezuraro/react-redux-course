@@ -2,12 +2,12 @@ import React from 'react';
 
 import Card from './Card';
 
-const Sum = props => (
+const Sum = () => (
     <Card red title='Soma dos Números'>
         <div>
             <span>
                 <span>Resultado: </span>
-                <strong>{parseInt(props.min) + parseInt(props.max)}</strong>
+                <strong>{10}</strong>
             </span>
         </div>
     </Card>

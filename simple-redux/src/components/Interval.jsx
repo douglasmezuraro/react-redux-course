@@ -4,16 +4,16 @@ import React from 'react';
 
 import Card from './Card';
 
-const Interval = props => (
+const Interval = () => (
     <Card blue title='Intervalo de Números'>
         <div className='Interval'>
             <span>
                 <strong>Mínimo:</strong>
-                <input type='number' step={1} value={props.min} onChange={e => props.onChangeMin(e)}/>
+                <input type='number' step={1} value={0} />
             </span>
             <span>
                 <strong>Máximo:</strong>
-                <input type='number' step={1} value={props.max} onChange={e => props.onChangeMax(e)} />
+                <input type='number' step={1} value={10} />
             </span>
         </div>
     </Card>
