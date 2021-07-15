@@ -63,7 +63,6 @@ export default class Todo extends Component {
             <div>
                 <PageHeader name='Tarefas' small='Cadastro' />
                 <TodoForm
-                    description={this.state.description}
                     onAdd={this.onAdd}
                     onChange={this.onChange}
                     onClear={this.onClear}
