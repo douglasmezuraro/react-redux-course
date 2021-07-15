@@ -2,7 +2,7 @@ import { combineReducers } from 'redux';
 
 const rootReducer = combineReducers(
     {
-        todo = () => (
+        todo: () => (
             {
                 description: 'ler livro',
                 list: [
@@ -23,7 +23,7 @@ const rootReducer = combineReducers(
                     },
                 ],
             }
-        ),
+        )
     }
 );
 
