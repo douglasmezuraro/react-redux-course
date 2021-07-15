@@ -4,7 +4,7 @@ import numbers from './reducers/numbers';
 
 const reducers = combineReducers(
     {
-        numbers: numbers
+        numbers: numbers,
     },
 );
 
