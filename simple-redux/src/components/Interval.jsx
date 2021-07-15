@@ -32,17 +32,15 @@ const mapStateToProps = state => (
     }
 );
 
-function mapDispatchToProps(dispatch) {
-    return {
+const mapDispatchToProps = dispatch => (
+    {
         onUpdateMin(min) {
-            const action = updateMin(min);
-            dispatch(action);
+            dispatch(updateMin(min));
         },
         onUpdateMax(max) {
-            const action = updateMax(max);
-            dispatch(action);
+            dispatch(updateMax(max));
         },
-    };
-};
+    }
+);
 
 export default connect(mapStateToProps, mapDispatchToProps)(Interval);
