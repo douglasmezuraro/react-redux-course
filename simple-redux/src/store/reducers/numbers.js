@@ -1,4 +1,4 @@
-import { UPDATE_MIN, UPDATE_MAX } from '../actions/constants';
+import { UPDATE_MIN, UPDATE_MAX } from '../actions/types';
 
 const INITIAL_STATE = { min: 0, max: 10 };
 

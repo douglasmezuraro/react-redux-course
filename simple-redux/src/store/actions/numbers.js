@@ -1,4 +1,4 @@
-import { UPDATE_MIN, UPDATE_MAX } from './constants';
+import { UPDATE_MIN, UPDATE_MAX } from './types';
 
 export const updateMin = min => (
     {
