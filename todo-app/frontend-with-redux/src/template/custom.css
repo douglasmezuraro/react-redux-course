@@ -7,6 +7,10 @@
     text-decoration: line-through;
 }
 
+.page-header small {
+    padding-left: 10px;
+}
+
 .tableActions {
     width: 120px;
 }
