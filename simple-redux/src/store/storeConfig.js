@@ -4,13 +4,13 @@ const reducers = combineReducers(
     {
         numbers: function (state, action) {
             console.log(state, ' ', action);
-            return { min: 0, max: 10 };
+            return { min: 7, max: 31 };
         },
         names: function (state, action) {
             console.log(state, ' ', action);
             return [
-                'Ana', 
-                'Bia', 
+                'Ana',
+                'Bia',
                 'Douglas',
             ];
         },
