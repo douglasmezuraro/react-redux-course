@@ -1,10 +1,12 @@
 import React from 'react';
+import { connect } from 'react-redux';
 
 import IconButton from '../template/iconButton';
 
 const TodoList = props => {
+    const { data } = props;
 
-    const renderRows = () => props.data.map(todo => {
+    const renderRows = () => data.map(todo => {
         const className = todo.done ? 'markedAsDone' : '';
         const title = `Criado em: ${todo.createdAt}\n` + (todo.done ? `Finalizado em: ${todo.doneAt}` : '');
 
@@ -41,4 +43,10 @@ const TodoList = props => {
     );
 };
 
-export default TodoList;
+const mapStateToProps = state => (
+    {
+        data: state.todo.data,
+    }
+);
+
+export default connect(mapStateToProps)(TodoList);

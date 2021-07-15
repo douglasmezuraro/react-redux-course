@@ -5,7 +5,7 @@ const rootReducer = combineReducers(
         todo: () => (
             {
                 description: 'ler livro',
-                list: [
+                data: [
                     {
                         _id: 1,
                         description: 'pagar fatura do cartão',

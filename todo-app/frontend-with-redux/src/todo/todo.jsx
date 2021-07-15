@@ -69,7 +69,6 @@ export default class Todo extends Component {
                     onClear={this.onClear}
                     onSearch={this.onSearch} />
                 <TodoList
-                    data={this.state.list}
                     onMarkAsDone={this.onMarkAsDone}
                     onMarkAsPending={this.onMarkAsPending}
                     onRemove={this.onRemove} />
