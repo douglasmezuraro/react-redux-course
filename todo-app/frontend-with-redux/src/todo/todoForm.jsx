@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
@@ -7,33 +7,43 @@ import IconButton from '../template/iconButton';
 
 import * as TodoFormActions from '../store/actions/todo';
 
-const TodoForm = props => {
+class TodoForm extends Component {
+   
+    constructor(props) {
+        super(props);
+        this.onKeyUp = this.onKeyUp.bind(this);
+    };
 
-    const { description, setDescription } = props;
+    componentDidMount() {
+        this.props.search();
+    };
 
-    const onKeyUp = e => {
+    onKeyUp(e) {
         if (e.key === 'Enter') {
-            e.shiftKey ? props.onSearch() : props.onAdd();
+            e.shiftKey ? search() : this.props.onAdd();
         }
         else if (e.key === 'Escape') {
-            props.onClear();
+            this.props.onClear();
         };
     };
 
-    return (
-        <div role='form' className='todoForm'>
-            <Grid cols='12 9 10'>
-                <input id='description' className='form-control' placeholder='Adicione uma tarefa'
-                    value={description} onChange={setDescription} onKeyUp={onKeyUp} />
-            </Grid>
+    render() {
+        return (
+            <div role='form' className='todoForm'>
+                <Grid cols='12 9 10'>
+                    <input id='description' className='form-control' placeholder='Adicione uma tarefa'
+                        value={this.props.description} onChange={this.props.setDescription} onKeyUp={this.onKeyUp} />
+                </Grid>
+    
+                <Grid cols='12 3 2'>
+                    <IconButton show={true} style='primary' title='Adicionar' icon='plus' onClick={this.props.onAdd} />
+                    <IconButton show={true} style='info' title='Pesquisar' icon='search' onClick={this.props.search} />
+                    <IconButton show={true} style='warning' title='Limpar pesquisa' icon='close' onClick={this.props.onClear} />
+                </Grid>
+            </div>
+        );
+    };
 
-            <Grid cols='12 3 2'>
-                <IconButton show={true} style='primary' title='Adicionar' icon='plus' onClick={props.onAdd} />
-                <IconButton show={true} style='info' title='Pesquisar' icon='search' onClick={props.onSearch} />
-                <IconButton show={true} style='warning' title='Limpar pesquisa' icon='close' onClick={props.onClear} />
-            </Grid>
-        </div>
-    );
 };
 
 const mapStateToProps = state => (

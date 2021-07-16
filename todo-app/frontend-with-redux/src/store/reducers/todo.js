@@ -1,4 +1,4 @@
-import { SET_DESCRIPTION } from '../actions/types';
+import { SEARCH, SET_DESCRIPTION } from '../actions/types';
 
 const INITIAL_STATE = {
     description: 'ler livro',
@@ -23,8 +23,9 @@ const INITIAL_STATE = {
 
 const todoReducer = (state = INITIAL_STATE, action) => {
     switch (action.type) {
+        case SEARCH:
+            return { ...state, data: action.payload.data };
         case SET_DESCRIPTION:
-            console.log(action)
             return { ...state, description: action.payload.description };
         default:
             return state;
