@@ -1,19 +1,25 @@
 import Axios from 'axios';
 
-import { SEARCH, SET_DESCRIPTION } from './types'
+import Actions from './types'
 
 const URL = 'http://localhost:3003/api/all';
 
 export const search = () => (
     {
-        type: SEARCH,
+        type: Actions.SEARCH,
         payload: Axios.get(`${URL}?sort=-createdAt`),
+    }
+);
+
+export const clearDescription = () => (
+    {
+        type: Actions.CLEAR_DESCRIPTION,
     }
 );
 
 export const setDescription = event => (
     {
-        type: SET_DESCRIPTION,
+        type: Actions.SET_DESCRIPTION,
         payload: { description: event.target.value },
     }
 );

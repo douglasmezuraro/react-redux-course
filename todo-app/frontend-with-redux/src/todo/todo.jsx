@@ -13,13 +13,10 @@ export default class Todo extends Component {
         super(props);
         this.state = { description: '', list: [] };
         this.onAdd = this.onAdd.bind(this);
-        this.onChange = this.onChange.bind(this);
-        this.onClear = this.onClear.bind(this);
         this.onMarkAsDone = this.onMarkAsDone.bind(this);
         this.onMarkAsPending = this.onMarkAsPending.bind(this);
         this.onRemove = this.onRemove.bind(this);
         this.onRefresh = this.onRefresh.bind(this);
-        this.onSearch = this.onSearch.bind(this);
 
         this.onRefresh();
     };
@@ -27,14 +24,6 @@ export default class Todo extends Component {
     onAdd() {
         const { description } = this.state;
         Axios.post(URL, { description }).then(() => this.onRefresh());
-    };
-
-    onChange(e) {
-        this.setState({ ...this.state, description: e.target.value });
-    };
-
-    onClear() {
-        this.onRefresh();
     };
 
     onMarkAsDone(todo) {
@@ -54,19 +43,11 @@ export default class Todo extends Component {
         Axios.get(`${URL}?sort=-createdAt?${filter}`).then(response => this.setState({ ...this.state, description, list: response.data }));
     };
 
-    onSearch() {
-        this.onRefresh(this.state.description);
-    };
-
     render() {
         return (
             <div>
                 <PageHeader name='Tarefas' small='Cadastro' />
-                <TodoForm
-                    onAdd={this.onAdd}
-                    onChange={this.onChange}
-                    onClear={this.onClear}
-                    onSearch={this.onSearch} />
+                <TodoForm onAdd={this.onAdd} />
                 <TodoList
                     onMarkAsDone={this.onMarkAsDone}
                     onMarkAsPending={this.onMarkAsPending}

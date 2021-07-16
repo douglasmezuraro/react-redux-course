@@ -38,7 +38,7 @@ class TodoForm extends Component {
                 <Grid cols='12 3 2'>
                     <IconButton show={true} style='primary' title='Adicionar' icon='plus' onClick={this.props.onAdd} />
                     <IconButton show={true} style='info' title='Pesquisar' icon='search' onClick={this.props.search} />
-                    <IconButton show={true} style='warning' title='Limpar pesquisa' icon='close' onClick={this.props.onClear} />
+                    <IconButton show={true} style='warning' title='Limpar pesquisa' icon='close' onClick={this.props.clearDescription} />
                 </Grid>
             </div>
         );
@@ -48,7 +48,7 @@ class TodoForm extends Component {
 
 const mapStateToProps = state => (
     {
-        payload: { description: state.todo.description },
+        description: state.todo.description,
     }
 );
 
