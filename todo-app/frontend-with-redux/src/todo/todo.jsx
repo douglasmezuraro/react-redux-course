@@ -12,18 +12,12 @@ export default class Todo extends Component {
     constructor(props) {
         super(props);
         this.state = { description: '', list: [] };
-        this.onAdd = this.onAdd.bind(this);
         this.onMarkAsDone = this.onMarkAsDone.bind(this);
         this.onMarkAsPending = this.onMarkAsPending.bind(this);
         this.onRemove = this.onRemove.bind(this);
         this.onRefresh = this.onRefresh.bind(this);
 
         this.onRefresh();
-    };
-
-    onAdd() {
-        const { description } = this.state;
-        Axios.post(URL, { description }).then(() => this.onRefresh());
     };
 
     onMarkAsDone(todo) {
@@ -47,7 +41,7 @@ export default class Todo extends Component {
         return (
             <div>
                 <PageHeader name='Tarefas' small='Cadastro' />
-                <TodoForm onAdd={this.onAdd} />
+                <TodoForm />
                 <TodoList
                     onMarkAsDone={this.onMarkAsDone}
                     onMarkAsPending={this.onMarkAsPending}
