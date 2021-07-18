@@ -7,9 +7,7 @@ const INITIAL_STATE = {
 
 const todoReducer = (state = INITIAL_STATE, action) => {
     switch (action.type) {
-        case Actions.ADD_TODO:
-            return { ...state, description: '' };
-        case Actions.CLEAR_DESCRIPTION:
+        case Actions.ADD_TODO, Actions.CLEAR_DESCRIPTION:
             return { ...state, description: '' };
         case Actions.SEARCH:
             return { ...state, data: action.payload.data };

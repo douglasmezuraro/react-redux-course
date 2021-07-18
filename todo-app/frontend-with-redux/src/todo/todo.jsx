@@ -12,20 +12,10 @@ export default class Todo extends Component {
     constructor(props) {
         super(props);
         this.state = { description: '', list: [] };
-        this.onMarkAsDone = this.onMarkAsDone.bind(this);
-        this.onMarkAsPending = this.onMarkAsPending.bind(this);
         this.onRemove = this.onRemove.bind(this);
         this.onRefresh = this.onRefresh.bind(this);
 
         this.onRefresh();
-    };
-
-    onMarkAsDone(todo) {
-        Axios.put(`${URL}/${todo._id}`, { ...todo, done: true, doneAt: Date.now() }).then(() => this.onRefresh(this.state.description));
-    };
-
-    onMarkAsPending(todo) {
-        Axios.put(`${URL}/${todo._id}`, { ...todo, done: false, doneAt: null }).then(() => this.onRefresh(this.state.description));
     };
 
     onRemove(todo) {
@@ -43,8 +33,6 @@ export default class Todo extends Component {
                 <PageHeader name='Tarefas' small='Cadastro' />
                 <TodoForm />
                 <TodoList
-                    onMarkAsDone={this.onMarkAsDone}
-                    onMarkAsPending={this.onMarkAsPending}
                     onRemove={this.onRemove} />
             </div>
         );
