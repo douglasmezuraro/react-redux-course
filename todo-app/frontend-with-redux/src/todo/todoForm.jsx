@@ -21,22 +21,16 @@ class TodoForm extends Component {
     onKeyUp(e) {
         const { addTodo, clearDescription, description, search } = this.props;
 
-        if (e.key === 'Enter') {
-            e.shiftKey ? search() : addTodo(description);
-        }
-        else if (e.key === 'Escape') {
-            clearDescription();
+        switch (e.key) {
+            case 'Enter':
+                return e.shiftKey ? search() : addTodo(description);
+            case 'Escape':
+                return clearDescription();
         };
     };
 
     render() {
-        const {
-            addTodo,
-            clearDescription,
-            description,
-            search,
-            setDescription,
-        } = this.props;
+        const { addTodo, clearDescription, description, search, setDescription } = this.props;
 
         return (
             <div role='form' className='todoForm'>

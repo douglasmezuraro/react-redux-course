@@ -1,5 +1,5 @@
 import Axios from 'axios';
-import Actions from './types'
+import Actions from './types';
 
 const URL = 'http://localhost:3003/api/all';
 
