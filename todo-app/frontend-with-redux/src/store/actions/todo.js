@@ -19,17 +19,19 @@ export const clearDescription = () => (
 
 export const markAsDone = todo => {
     return dispatch => {
-        Axios.put(`${URL}/${todo._id}`, { ...todo, done: true, doneAt: Date.now() })
-            .then(response => dispatch({ type: Actions.MARK_AS_DONE, payload: response.data }))
-            .then(() => dispatch(search(todo.description)));
+        Axios.put(`${URL}/${todo._id}`, { ...todo, done: true, doneAt: Date.now() }).then(() => dispatch(search()));
     };
 };
 
 export const markAsPending = todo => {
     return dispatch => {
-        Axios.put(`${URL}/${todo._id}`, { ...todo, done: false, doneAt: null })
-            .then(response => dispatch({ type: Actions.MARK_AS_PENDING, payload: response.data }))
-            .then(() => dispatch(search(todo.description)));
+        Axios.put(`${URL}/${todo._id}`, { ...todo, done: false, doneAt: null }).then(() => dispatch(search()));
+    };
+};
+
+export const removeTodo = todo => {
+    return dispatch => {
+        Axios.delete(`${URL}/${todo._id}`).then(() => dispatch(search()));
     };
 };
 

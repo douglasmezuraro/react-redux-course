@@ -6,7 +6,7 @@ import IconButton from '../template/iconButton';
 import * as Actions from '../store/actions/todo';
 
 const TodoList = props => {
-    const { data, markAsDone, markAsPending } = props;
+    const { data, markAsDone, markAsPending, removeTodo } = props;
 
     const renderRows = () => data.map(todo => {
         const className = todo.done ? 'markedAsDone' : '';
@@ -20,7 +20,7 @@ const TodoList = props => {
                 <td>
                     <IconButton style='success' title='Marcar como concluído' icon='check' show={!todo.done} onClick={() => markAsDone(todo)} />
                     <IconButton style='warning' title='Marcar como pendente' icon='undo' show={todo.done} onClick={() => markAsPending(todo)} />
-                    <IconButton style='danger' title='Remover' icon='trash-o' show={todo.done} onClick={() => props.onRemove(todo)} />
+                    <IconButton style='danger' title='Remover' icon='trash-o' show={todo.done} onClick={() => removeTodo(todo)} />
                 </td>
             </tr>
         );
