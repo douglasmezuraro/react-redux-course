@@ -19,10 +19,10 @@ class TodoForm extends Component {
     };
 
     onKeyUp(e) {
-        const { addTodo, clearDescription } = this.props;
+        const { addTodo, clearDescription, description, search } = this.props;
 
         if (e.key === 'Enter') {
-            e.shiftKey ? search() : addTodo();
+            e.shiftKey ? search() : addTodo(description);
         }
         else if (e.key === 'Escape') {
             clearDescription();
@@ -47,7 +47,7 @@ class TodoForm extends Component {
 
                 <Grid cols='12 3 2'>
                     <IconButton show={true} style='primary' title='Adicionar' icon='plus' onClick={() => addTodo(description)} />
-                    <IconButton show={true} style='info' title='Pesquisar' icon='search' onClick={() => search(description)} />
+                    <IconButton show={true} style='info' title='Pesquisar' icon='search' onClick={search} />
                     <IconButton show={true} style='warning' title='Limpar pesquisa' icon='close' onClick={clearDescription} />
                 </Grid>
             </div>
@@ -66,5 +66,5 @@ const mapDispatchToProps = dispatch => bindActionCreators(Actions, dispatch);
 
 export default connect(
     mapStateToProps,
-    mapDispatchToProps
+    mapDispatchToProps,
 )(TodoForm);
