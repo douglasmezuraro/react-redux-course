@@ -1,7 +1,9 @@
 const BillingCycle = require('./billingCycle');
+const errorHandler = require('../common/errorHandler');
 
 BillingCycle.methods(['get', 'post', 'put', 'delete']);
 BillingCycle.updateOptions({ new: true, runValidators: true });
+BillingCycle.after('post', errorHandler).after('put', errorHandler);
 
 BillingCycle.route('get', (request, response, next) => {
     BillingCycle.find({}, (error, docs) => {
@@ -23,7 +25,7 @@ BillingCycle.route('count', (request, response, next) => {
     });
 });
 
-BillingCycle.route('summary', (req, res, next) => {
+BillingCycle.route('summary', (request, response, next) => {
     const pipeline = [
         {
             $project: { credit: { $sum: "$credits.value" }, debt: { $sum: "$debts.value" } },
@@ -38,9 +40,9 @@ BillingCycle.route('summary', (req, res, next) => {
 
     BillingCycle.aggregate(pipeline, (error, result) => {
         if (error) {
-            res.status(500).json({ errors: [error] });
+            response.status(500).json({ errors: [error] });
         } else {
-            res.json(result[0] || { credit: 0, debt: 0 });
+            response.json(result[0] || { credit: 0, debt: 0 });
         };
     });
 });
