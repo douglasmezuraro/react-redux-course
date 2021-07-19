@@ -9,7 +9,7 @@ BillingCycle.route('get', (req, res, next) => {
             res.json(docs)
         } else {
             res.status(500).json({ errors: [error] })
-        }
+        };
     })
 });
 
