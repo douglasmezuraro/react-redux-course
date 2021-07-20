@@ -5,7 +5,7 @@ BillingCycle.methods(['get', 'post', 'put', 'delete']);
 BillingCycle.updateOptions({ new: true, runValidators: true });
 BillingCycle.after('post', errorHandler).after('put', errorHandler);
 
-BillingCycle.route('get', (_, response, _) => {
+BillingCycle.route('get', (request, response, next) => {
     BillingCycle.find({}, (error, docs) => {
         if (error) {
             response.status(500).json({ errors: [error] });
@@ -15,7 +15,7 @@ BillingCycle.route('get', (_, response, _) => {
     });
 });
 
-BillingCycle.route('count', (_, response, _) => {
+BillingCycle.route('count', (request, response, next) => {
     BillingCycle.count((error, value) => {
         if (error) {
             response.status(500).json({ errors: [error] });
@@ -25,7 +25,7 @@ BillingCycle.route('count', (_, response, _) => {
     });
 });
 
-BillingCycle.route('summary', (_, response, _) => {
+BillingCycle.route('summary', (request, response, next) => {
     const pipeline = [
         {
             $project: { credit: { $sum: "$credits.value" }, debt: { $sum: "$debts.value" } },

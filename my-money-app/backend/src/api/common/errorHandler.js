@@ -1,6 +1,6 @@
 const lodash = require('lodash');
 
-module.exports = (_, response, next) => {
+module.exports = (request, response, next) => {
     const bundle = response.locals.bundle;
 
     if (bundle.errors) {
