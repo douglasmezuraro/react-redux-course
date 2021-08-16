@@ -1,8 +1,14 @@
 import React from 'react';
 
+import MenuItem from './menuItem';
+import MenuTree from './menuTree';
+
 const Menu = () => (
     <ul className='sidebar-menu'>
-        SideBar
+        <MenuItem path='#' label='Dashboard' icon='fa fa-dashboard' />
+        <MenuTree label='Cadastro' icon='fa fa-edit'>
+            <MenuItem path='#billingCycles' label='Ciclos de Pagamentos' icon='fa fa-usd' />
+        </MenuTree>
     </ul>
 );
 
