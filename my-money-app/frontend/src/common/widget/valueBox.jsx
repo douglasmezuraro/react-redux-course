@@ -1,10 +1,9 @@
 import React from 'react';
-
 import Grid from '../layout/grid';
 
 const ValueBox = ({ color, cols, icon, text, value }) => (
     <Grid cols={cols}>
-        <div className={`small-box bg-${color}`}>
+        <div className={`small-box ${color}`}>
             <div className='inner'>
                 <h3>{value}</h3>
                 <p>{text}</p>
