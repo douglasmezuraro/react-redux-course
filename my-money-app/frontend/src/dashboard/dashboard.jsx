@@ -1,9 +1,19 @@
-import React from 'react';
+import React, { Component } from 'react';
 
-const Dashboard = () => (
-    <div>
-        <h1>Dashboard</h1>
-    </div>
-);
+import Content from '../common/template/content';
+import ContentHeader from '../common/template/contentHeader';
+
+class Dashboard extends Component {
+    render() {
+        return (
+            <div>
+                <ContentHeader title='Dashboard' subtitle='Versão 1.0' />
+                <Content>
+                    Dashboard
+                </Content>
+            </div>
+        );
+    };
+};
 
 export default Dashboard;
