@@ -5,8 +5,13 @@ const INITIAL_STATE = {
     },
 };
 
-const dashBoardReducer = (state = INITIAL_STATE) => {
-    return state;
+const dashBoardReducer = (state = INITIAL_STATE, action) => {
+    switch (action.type) {
+        case 'BILLING_SUMMARY_FETCHED':
+            return { ...state, summary: action.payload.data };
+        default:
+            return state;
+    };
 };
 
 export default dashBoardReducer;
