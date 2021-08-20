@@ -11,7 +11,7 @@ export const showTabs = (...tabs) => {
     return (
         {
             type: 'TAB_SHOWED',
-            payload: tabs,
+            payload: tabToShow,
         }
     );
 };

@@ -2,13 +2,22 @@ import React from 'react';
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux';
 
+import If from '../operator/if';
+
 import * as Actions from './actions';
 
-const TabContent = ({ children, id, tab }) => (
-    <div id={id} className={`tab-pane ${id === tab.selected ? 'active' : ''}`}>
-        {children}
-    </div>
-);
+const TabContent = ({ children, id, tab }) => {
+    const selected = id === tab.selected;
+    const visible = tab.visible[id];
+
+    return (
+        <If condition={visible}>
+            <div id={id} className={`tab-pane ${selected ? 'active' : ''}`}>
+                {children}
+            </div>
+        </If>
+    );
+};
 
 const mapStateToProps = state => (
     {
