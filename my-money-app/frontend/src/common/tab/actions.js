@@ -1,8 +1,6 @@
-export const selectTab = (id) => {
-    console.log(id);
-    return {
+export const selectTab = (id) => (
+    {
         type: 'TAB_SELECTED',
         payload: id,
-    };
-};
-
+    }
+);
