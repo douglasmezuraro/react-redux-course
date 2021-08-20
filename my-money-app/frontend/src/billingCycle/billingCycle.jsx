@@ -7,6 +7,7 @@ import Tabs from '../common/tab/tabs';
 import TabsHeader from '../common/tab/tabsHeader';
 import TabsContent from '../common/tab/tabsContent';
 import TabHeader from '../common/tab/tabHeader';
+import TabContent from '../common/tab/tabContent';
 class BillingCycle extends Component {
     render() {
         return (
@@ -22,7 +23,10 @@ class BillingCycle extends Component {
                         </TabsHeader>
 
                         <TabsContent>
-
+                            <TabContent id='tabList' />
+                            <TabContent id='tabCreate' />
+                            <TabContent id='tabUpdate' />
+                            <TabContent id='tabDelete' />
                         </TabsContent>
                     </Tabs>
                 </Content>
