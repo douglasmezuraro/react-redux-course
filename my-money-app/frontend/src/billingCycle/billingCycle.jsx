@@ -1,9 +1,19 @@
-import React from 'react';
+import React, { Component } from 'react';
 
-const BillingCycle = () => (
-    <div>
-        <h1>Billing Cycle</h1>
-    </div>
-);
+import ContentHeader from '../common/template/contentHeader';
+import Content from '../common/template/content';
+
+class BillingCycle extends Component {
+    render() {
+        return (
+            <div>
+                <ContentHeader title='Ciclos de Pagamentos' subtitle='Cadastro' />
+                <Content>
+                    Ciclos de Pagamento
+                </Content>
+            </div>
+        );
+    };
+};
 
 export default BillingCycle;
