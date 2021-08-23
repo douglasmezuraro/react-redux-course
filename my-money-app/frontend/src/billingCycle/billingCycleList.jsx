@@ -4,6 +4,21 @@ import { bindActionCreators } from 'redux';
 
 import * as Actions from './actions';
 
+const MONTHS = Object.freeze({
+    1: 'Janeiro',
+    2: 'Fevereiro',
+    3: 'Março',
+    4: 'Abril',
+    5: 'Maio',
+    6: 'Junho',
+    7: 'Julho',
+    8: 'Agosto',
+    9: 'Setembro',
+    10: 'Outubro',
+    11: 'Novembro',
+    12: 'Dezembro',
+});
+
 class BillingCycleList extends Component {
     componentDidMount() {
         this.props.getList();
@@ -15,11 +30,11 @@ class BillingCycleList extends Component {
             .map(billingCycle => (
                 <tr key={billingCycle._id}>
                     <td>{billingCycle.name}</td>
-                    <td>{billingCycle.month}</td>
+                    <td>{MONTHS[billingCycle.month]}</td>
                     <td>{billingCycle.year}</td>
                 </tr>
             ));
-    }   ;
+    };
 
     render() {
         return (
