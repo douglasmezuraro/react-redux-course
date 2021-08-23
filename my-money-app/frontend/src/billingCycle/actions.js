@@ -8,3 +8,10 @@ export const getList = () => (
         payload: Axios.get(`${BASE_URL}/billingCycles/`),
     }
 );
+
+export const create = values => (
+    {
+        type: 'BILLING_CYCLE_CREATED',
+        payload: Axios.post(`${BASE_URL}/billingCycles/`, values),
+    }
+);
