@@ -9,7 +9,7 @@ import * as Actions from './actions';
 
 class BillingCycleForm extends Component {
     render() {
-        const { handleSubmit, readOnly } = this.props;
+        const { handleSubmit, readOnly, submitClass, submitLabel } = this.props;
 
         return (
             <form role='form' onSubmit={handleSubmit}>
@@ -20,7 +20,7 @@ class BillingCycleForm extends Component {
                 </div>
 
                 <div className='box-footer'>
-                    <button type='submit' className='btn btn-primary'>Submit</button>
+                    <button type='submit' className={submitClass}>{submitLabel}</button>
                     <button type='button' className='btn btn-default' onClick={this.props.init}>Cancelar</button>
                 </div>
             </form>
