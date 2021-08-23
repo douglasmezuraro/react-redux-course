@@ -20,8 +20,15 @@ export const create = (values) =>
             dispatch([
                 resetForm('billingCycleForm'),
                 getList(),
-                selectTab('tabList'),
                 showTabs('tabList', 'tabCreate'),
+                selectTab('tabList'),
             ]);
         })
         .catch(e => e.response.data.errors.forEach(error => toastr.error('Erro', error)));
+
+export const showUpdate = (billingCycle) => (
+    [
+        showTabs('tabUpdate'),
+        selectTab('tabUpdate'),
+    ]
+);
