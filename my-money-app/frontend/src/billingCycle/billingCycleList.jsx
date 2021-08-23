@@ -1,30 +1,38 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
 import * as Actions from './actions';
 
-const BillingCycleList = ({ list }) => (
-    <div>
-        <table className='table'>
-            <thead>
-                <tr>
-                    <th>Nome</th>
-                    <th>Mês</th>
-                    <th>Ano</th>
-                </tr>
-            </thead>
+class BillingCycleList extends Component {
+    componentDidMount() {
+        this.props.getList();
+    };
 
-            <tbody>
+    render() {
+        return (
+            <div>
+                <table className='table'>
+                    <thead>
+                        <tr>
+                            <th>Nome</th>
+                            <th>Mês</th>
+                            <th>Ano</th>
+                        </tr>
+                    </thead>
 
-            </tbody>
-        </table>
-    </div>
-);
+                    <tbody>
+
+                    </tbody>
+                </table>
+            </div>
+        );
+    };
+};
 
 const mapStateToProps = state => (
     {
-
+        list: state.billingCycle.list,
     }
 );
 
