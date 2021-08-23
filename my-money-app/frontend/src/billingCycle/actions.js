@@ -1,6 +1,6 @@
 import Axios from 'axios';
+import { initialize } from 'redux-form';
 import { toastr } from 'react-redux-toastr';
-import { initialize, reset as resetForm } from 'redux-form';
 
 import { selectTab, showTabs } from '../common/tab/actions';
 
@@ -18,7 +18,15 @@ export const getList = () => (
 export const create = (values) =>
     dispatch => Axios.post(`${BASE_URL}/billingCycles/`, values)
         .then(() => {
-            toastr.success('Sucesso', 'Operação realizada com sucesso.');
+            toastr.success('Sucesso', 'Registro inserido com sucesso.');
+            dispatch(init());
+        })
+        .catch(e => e.response.data.errors.forEach(error => toastr.error('Erro', error)));
+
+export const update = (values) =>
+    dispatch => Axios.put(`${BASE_URL}/billingCycles/${values._id}`, values)
+        .then(() => {
+            toastr.success('Sucesso', 'Registro atualizado com sucesso.');
             dispatch(init());
         })
         .catch(e => e.response.data.errors.forEach(error => toastr.error('Erro', error)));
