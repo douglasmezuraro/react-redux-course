@@ -4,20 +4,7 @@ import { bindActionCreators } from 'redux';
 
 import * as Actions from './actions';
 
-const MONTHS = Object.freeze({
-    1: 'Janeiro',
-    2: 'Fevereiro',
-    3: 'Março',
-    4: 'Abril',
-    5: 'Maio',
-    6: 'Junho',
-    7: 'Julho',
-    8: 'Agosto',
-    9: 'Setembro',
-    10: 'Outubro',
-    11: 'Novembro',
-    12: 'Dezembro',
-});
+import { getMonthName } from '../common/utils/methods';
 
 class BillingCycleList extends Component {
     componentDidMount() {
@@ -26,11 +13,11 @@ class BillingCycleList extends Component {
 
     renderRows() {
         const list = this.props.list || [];
-        return list.sort((a, b) => a.month - b.month)
+        return list.sort((left, right) => left.year - right.year || left.month - right.month)
             .map(billingCycle => (
                 <tr key={billingCycle._id}>
                     <td>{billingCycle.name}</td>
-                    <td>{MONTHS[billingCycle.month]}</td>
+                    <td>{getMonthName(billingCycle.month)}</td>
                     <td>{billingCycle.year}</td>
                     <td>
                         <button className='btn btn-warning' onClick={() => this.props.showUpdate(billingCycle)}>

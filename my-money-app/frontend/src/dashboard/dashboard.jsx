@@ -9,6 +9,8 @@ import ValueBox from '../common/widget/valueBox';
 
 import * as Actions from '../dashboard/actions';
 
+import { CURRENCY_FORMATTER } from '../common/utils/methods';
+
 class Dashboard extends Component {
     componentDidMount() {
         this.props.getSummary();
@@ -22,9 +24,9 @@ class Dashboard extends Component {
                 <ContentHeader title='Dashboard' subtitle='Versão 1.0' />
                 <Content>
                     <Row>
-                        <ValueBox cols='12 4' color='bg-green' icon='fa fa-bank' text='Total de Créditos' value={`R$${credit.toFixed(2)}`} />
-                        <ValueBox cols='12 4' color='bg-red' icon='fa fa-credit-card' text='Total de Débitos' value={`R$${debt.toFixed(2)}`} />
-                        <ValueBox cols='12 4' color='bg-blue' icon='fa fa-money' text='Valor Consolidado' value={`R$${(credit - debt).toFixed(2)}`} />
+                        <ValueBox cols='12 4' color='bg-green' icon='fa fa-bank' text='Total de Créditos' value={CURRENCY_FORMATTER.format(credit)} />
+                        <ValueBox cols='12 4' color='bg-red' icon='fa fa-credit-card' text='Total de Débitos' value={CURRENCY_FORMATTER.format(debt)} />
+                        <ValueBox cols='12 4' color='bg-blue' icon='fa fa-money' text='Valor Consolidado' value={CURRENCY_FORMATTER.format(credit - debt)} />
                     </Row>
                 </Content>
             </div>
