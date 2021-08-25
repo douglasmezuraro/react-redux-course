@@ -14,7 +14,7 @@ import TabContent from '../common/tab/tabContent';
 import Form from './bilingCycleForm';
 import List from './billingCycleList';
 
-import { create, init, update, remove } from './actions';
+import * as Actions from './actions';
 
 class BillingCycle extends Component {
     componentDidMount() {
@@ -22,6 +22,7 @@ class BillingCycle extends Component {
     };
 
     render() {
+        const { create, update, remove } = this.props;
         return (
             <div>
                 <ContentHeader title='Ciclos de Pagamentos' subtitle='Cadastro' />
@@ -40,15 +41,15 @@ class BillingCycle extends Component {
                             </TabContent>
 
                             <TabContent id='tabCreate'>
-                                <Form onSubmit={this.props.create} submitClass='btn btn-primary' submitLabel='Incluir' />
+                                <Form onSubmit={create} submitClass='btn btn-primary' submitLabel='Incluir' />
                             </TabContent>
 
                             <TabContent id='tabUpdate'>
-                                <Form onSubmit={this.props.update} submitClass='btn btn-warning' submitLabel='Alterar' />
+                                <Form onSubmit={update} submitClass='btn btn-warning' submitLabel='Alterar' />
                             </TabContent>
 
                             <TabContent id='tabDelete'>
-                                <Form onSubmit={this.props.remove} submitClass='btn btn-danger' submitLabel='Remover' readOnly={true} />
+                                <Form onSubmit={remove} submitClass='btn btn-danger' submitLabel='Remover' readOnly={true} />
                             </TabContent>
                         </TabsContent>
                     </Tabs>
@@ -58,6 +59,6 @@ class BillingCycle extends Component {
     };
 };
 
-const mapDispatchToProps = dispatch => bindActionCreators({ create, init, update, remove }, dispatch);
+const mapDispatchToProps = dispatch => bindActionCreators(Actions, dispatch);
 
 export default connect(null, mapDispatchToProps)(BillingCycle);
