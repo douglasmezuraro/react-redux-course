@@ -6,20 +6,23 @@ import Grid from '../common/layout/grid';
 
 class CreditList extends Component {
     renderRows() {
+        const values = this.props.values || [];
         return (
-            <tr>
-                <td>
-                    <Field name='credits[0].name' component={Input} placeholder='Informe o nome' readOnly={this.props.readOnly} />
-                </td>
+            values.map((_, index) => (
+                <tr key={index}>
+                    <td>
+                        <Field name={`credits[${index}].name`} component={Input} placeholder='Informe o nome' readOnly={this.props.readOnly} />
+                    </td>
 
-                <td>
-                    <Field name='credits[0].value' component={Input} placeholder='Informe o valor' readOnly={this.props.readOnly} />
-                </td>
+                    <td>
+                        <Field name={`credits[${index}].value`} component={Input} placeholder='Informe o valor' readOnly={this.props.readOnly} />
+                    </td>
 
-                <td>
+                    <td>
 
-                </td>
-            </tr>
+                    </td>
+                </tr>
+            ))
         );
     };
 
