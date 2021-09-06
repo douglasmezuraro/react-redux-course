@@ -8,6 +8,8 @@ import Grid from '../common/layout/grid';
 
 import If from '../common/operator/if';
 
+//TODO: Alterar o status para um componente de seleção
+
 class ItemList extends Component {
     add(index, item = {}) {
         if (this.props.readOnly) {
