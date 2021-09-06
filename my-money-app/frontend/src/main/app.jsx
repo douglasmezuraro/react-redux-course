@@ -5,15 +5,14 @@ import React from 'react';
 import Footer from '../common/template/footer';
 import Header from '../common/template/header'
 import Messages from '../common/messages/messages';
-import Routes from './routes';
 import SideBar from '../common/template/sideBar';
 
-const App = () => (
+const App = ({ children }) => (
     <div className='wrapper'>
         <Header />
         <SideBar />
         <div className='content-wrapper'>
-            <Routes />
+            {children}
         </div>
         <Footer />
         <Messages />

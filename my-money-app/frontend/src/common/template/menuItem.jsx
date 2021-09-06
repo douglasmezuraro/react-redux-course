@@ -1,11 +1,12 @@
 import React from 'react';
+import { Link } from 'react-router';
 
 const MenuItem = ({ path, icon, label }) => (
     <li>
-        <a href={path}>
+        <Link to={path}>
             <i className={icon} />
             <span>{label}</span>
-        </a>
+        </Link>
     </li>
 );
 
