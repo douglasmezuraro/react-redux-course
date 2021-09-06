@@ -5,7 +5,7 @@ import { toastr } from 'react-redux-toastr';
 import { selectTab, showTabs } from '../common/tab/actions';
 
 const BASE_URL = 'http://localhost:3003/api';
-const INITIAL_VALUES = { credits: [{}] };
+const INITIAL_VALUES = { credits: [{}], debts: [{}] };
 
 //TODO: Criar um método chamado "showTab" para ser genérico e remover os métodos "showUpdate" e "showRemove"
 //TODO: Criar um método chamado "submit" para ser genérioc e remover os métodos "create", "update" e "remove"

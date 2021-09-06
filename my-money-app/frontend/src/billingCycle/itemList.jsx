@@ -6,13 +6,13 @@ import { Field, arrayInsert, arrayRemove } from 'redux-form';
 import Input from '../common/form/input';
 import Grid from '../common/layout/grid';
 
-class CreditList extends Component {
+class ItemList extends Component {
     add(index, item = {}) {
         if (this.props.readOnly) {
             return;
         };
 
-        this.props.arrayInsert('billingCycleForm', 'credits', index, item);
+        this.props.arrayInsert('billingCycleForm', this.props.field, index, item);
     };
 
     remove(index) {
@@ -20,7 +20,7 @@ class CreditList extends Component {
             return;
         };
 
-        this.props.arrayRemove('billingCycleForm', 'credits', index);
+        this.props.arrayRemove('billingCycleForm', this.props.field, index);
     };
 
     renderRows() {
@@ -29,11 +29,11 @@ class CreditList extends Component {
             values.map((item, index) => (
                 <tr key={index}>
                     <td>
-                        <Field name={`credits[${index}].name`} component={Input} placeholder='Informe o nome' readOnly={this.props.readOnly} />
+                        <Field name={`[${this.props.field}][${index}].name`} component={Input} placeholder='Informe o nome' readOnly={this.props.readOnly} />
                     </td>
 
                     <td>
-                        <Field name={`credits[${index}].value`} component={Input} placeholder='Informe o valor' readOnly={this.props.readOnly} />
+                        <Field name={`[${this.props.field}][${index}].value`} component={Input} placeholder='Informe o valor' readOnly={this.props.readOnly} />
                     </td>
 
                     <td>
@@ -59,7 +59,7 @@ class CreditList extends Component {
             <Grid cols={this.props.cols}>
                 <fieldset>
                     <legend>
-                        Créditos
+                        {this.props.title}
                     </legend>
 
                     <table className='table'>
@@ -83,4 +83,4 @@ class CreditList extends Component {
 
 const mapDispatchToProps = dispatch => bindActionCreators({ arrayInsert, arrayRemove }, dispatch);
 
-export default connect(null, mapDispatchToProps)(CreditList);
+export default connect(null, mapDispatchToProps)(ItemList);
