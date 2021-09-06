@@ -9,3 +9,5 @@ export const getMonthName = month => {
 	const monthName = date.toLocaleString('default', { month: 'long' });
 	return monthName && monthName[0].toUpperCase() + monthName.slice(1);
 };
+
+export const sum = (t, v) => t + v;

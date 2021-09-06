@@ -8,11 +8,21 @@ import LabeledInput from '../common/form/labeledInput';
 import ItemList from './itemList';
 import Summary from './summary';
 
+import { sum } from '../common/utils/methods';
+
 import * as Actions from './actions';
 
 class BillingCycleForm extends Component {
+    calculateSummary() {
+        return {
+            sumOfCredits: this.props.credits.map(credit => credit.value || 0).reduce(sum),
+            sumOfDebts: this.props.debts.map(debt => debt.value || 0).reduce(sum),
+        };
+    };
+
     render() {
         const { credits, debts, handleSubmit, init, readOnly, submitClass, submitLabel } = this.props;
+        const {sumOfCredits, sumOfDebts} = this.calculateSummary();
         return (
             <form role='form' onSubmit={handleSubmit}>
                 <div className='box-body'>
@@ -20,7 +30,7 @@ class BillingCycleForm extends Component {
                     <Field name='month' component={LabeledInput} label='Mês' cols='12 4' placeholder='Infome o mês' type='number' readOnly={readOnly} />
                     <Field name='year' component={LabeledInput} label='Ano' cols='12 4' placeholder='Informe o ano' type='number' readOnly={readOnly} />
 
-                    <Summary credit={credits} debt={debts} />
+                    <Summary credit={sumOfCredits} debt={sumOfDebts} />
 
                     <ItemList title='Créditos' field='credits' cols='12 6' readOnly={readOnly} showStatus={false} values={credits} />
                     <ItemList title='Débitos' field='debts' cols='12 6' readOnly={readOnly} showStatus={true} values={debts} />
