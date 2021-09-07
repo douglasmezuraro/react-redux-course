@@ -1,5 +1,6 @@
 import React from 'react';
 
+import Input from './input';
 import Grid from '../layout/grid';
 
 const LabeledInput = ({ cols, input, label, name, placeholder, readOnly, type }) => (
@@ -9,7 +10,7 @@ const LabeledInput = ({ cols, input, label, name, placeholder, readOnly, type })
                 {label}
             </label>
 
-            <input {...input} className='form-control' placeholder={placeholder} readOnly={readOnly} type={type} />
+            <Input input={input} placeholder={placeholder} readOnly={readOnly} type={type} />
         </div>
     </Grid>
 )
