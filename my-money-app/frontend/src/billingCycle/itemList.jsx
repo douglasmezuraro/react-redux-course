@@ -4,11 +4,12 @@ import { bindActionCreators } from 'redux';
 import { Field, arrayInsert, arrayRemove } from 'redux-form';
 
 import Input from '../common/form/input';
+import Select from '../common/form/select';
 import Grid from '../common/layout/grid';
 
 import If from '../common/operator/if';
 
-//TODO: Alterar o status para um componente de seleção
+import { StatusEnum } from './enums';
 
 class ItemList extends Component {
     add(index, item = {}) {
@@ -42,7 +43,7 @@ class ItemList extends Component {
 
                     <If condition={this.props.showStatus}>
                         <td>
-                            <Field name={`[${this.props.field}][${index}.status]`} component={Input} placeholder='Informe o status' readOnly={this.props.readOnly} />
+                            <Field name={`[${this.props.field}][${index}].status`} component={Select} placeholder='Informe o status' readOnly={this.props.readOnly} options={StatusEnum} />
                         </td>
                     </If>
 

@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
-import * as Actions from './actions';
+import { MonthEnum } from './enums';
 
-import { getMonthName } from '../common/utils/methods';
+import * as Actions from './actions';
 
 class BillingCycleList extends Component {
     componentDidMount() {
@@ -17,7 +17,7 @@ class BillingCycleList extends Component {
             .map(billingCycle => (
                 <tr key={billingCycle._id}>
                     <td>{billingCycle.name}</td>
-                    <td>{getMonthName(billingCycle.month)}</td>
+                    <td>{MonthEnum.find(month => month.value === billingCycle.month).label}</td>
                     <td>{billingCycle.year}</td>
                     <td>
                         <button className='btn btn-warning' onClick={() => this.props.showUpdate(billingCycle)}>
