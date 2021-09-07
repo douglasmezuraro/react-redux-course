@@ -29,7 +29,7 @@ class BillingCycleForm extends Component {
                 <div className='box-body'>
                     <Field name='name' component={LabeledInput} label='Nome' cols='12 4' placeholder='Informe o nome' readOnly={readOnly} />
                     <Field name='month' component={LabeledSelect} label='Mês' cols='12 4' placeholder='Infome o mês' options={MonthEnum} readOnly={readOnly} />
-                    <Field name='year' component={LabeledInput} label='Ano' cols='12 4' placeholder='Informe o ano' type='number' readOnly={readOnly} />
+                    <Field name='year' component={LabeledInput} label='Ano' cols='12 4' placeholder='Informe o ano' type='number' step={0.01} readOnly={readOnly} />
 
                     <Summary credit={sumOfCredits} debt={sumOfDebts} />
 

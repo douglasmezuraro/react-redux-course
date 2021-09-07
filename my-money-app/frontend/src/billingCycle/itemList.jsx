@@ -38,7 +38,7 @@ class ItemList extends Component {
                     </td>
 
                     <td>
-                        <Field name={`[${this.props.field}][${index}].value`} component={Input} placeholder='Informe o valor' readOnly={this.props.readOnly} />
+                        <Field name={`[${this.props.field}][${index}].value`} component={Input} placeholder='Informe o valor' readOnly={this.props.readOnly} type='number' step={0.01} />
                     </td>
 
                     <If condition={this.props.showStatus}>
