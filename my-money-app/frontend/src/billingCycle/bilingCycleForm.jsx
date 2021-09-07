@@ -15,8 +15,8 @@ import * as Actions from './actions';
 class BillingCycleForm extends Component {
     calculateSummary() {
         return {
-            sumOfCredits: this.props.credits.map(credit => credit.value || 0).reduce(sum),
-            sumOfDebts: this.props.debts.map(debt => debt.value || 0).reduce(sum),
+            sumOfCredits: this.props.credits.map(credit => parseFloat(credit.value) || 0.00).reduce(sum),
+            sumOfDebts: this.props.debts.map(debt => parseFloat(debt.value) || 0.00).reduce(sum),
         };
     };
 
