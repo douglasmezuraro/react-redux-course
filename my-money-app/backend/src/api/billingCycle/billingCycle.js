@@ -1,6 +1,12 @@
 const restful = require('node-restful');
 const mongoose = restful.mongoose;
 
+const statusEnum = Object.freeze({
+    0: 'Pago',
+    1: 'Pendente',
+    2: 'Agendado',
+});
+
 const creditSchema = new mongoose.Schema(
     {
         name: { type: String, required: [true, 'Informe o nome do crédito.'] },
@@ -12,7 +18,7 @@ const debtSchema = new mongoose.Schema(
     {
         name: { type: String, required: [true, 'Informe o nome do débito.'] },
         value: { type: Number, min: 0, required: [true, 'Informe o valor do débito.'] },
-        status: { type: String, required: [true, 'Informe o status do débito'], uppercase: true, enum: ['PAGO', 'PENDENTE', 'AGENDADO'] },
+        status: { type: Number, required: [true, 'Informe o status do débito'], enum: Object.keys(statusEnum).map(x => parseInt(x)) },
     }
 );
 
