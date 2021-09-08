@@ -6,9 +6,7 @@ import { Field, arrayInsert, arrayRemove } from 'redux-form';
 import Input from '../common/form/input';
 import Select from '../common/form/select';
 import Grid from '../common/layout/grid';
-
 import If from '../common/operator/if';
-
 import { StatusEnum } from './enums';
 
 class ItemList extends Component {
@@ -22,33 +20,35 @@ class ItemList extends Component {
 
     renderRows() {
         const values = this.props.values || [];
+        const { disabled, field, showStatus } = this.props;
+
         return (
             values.map((item, index) => (
                 <tr key={index}>
                     <td>
-                        <Field name={`[${this.props.field}][${index}].name`} component={Input} placeholder='Informe o nome' readOnly={this.props.readOnly} />
+                        <Field component={Input} disabled={disabled} name={`[${field}][${index}].name`} placeholder='Informe o nome' />
                     </td>
 
                     <td>
-                        <Field name={`[${this.props.field}][${index}].value`} component={Input} placeholder='Informe o valor' readOnly={this.props.readOnly} type='number' step={0.01} />
+                        <Field component={Input} disabled={disabled} name={`[${field}][${index}].value`} placeholder='Informe o valor' type='number' step={0.01} />
                     </td>
 
-                    <If condition={this.props.showStatus}>
+                    <If condition={showStatus}>
                         <td>
-                            <Field name={`[${this.props.field}][${index}].status`} component={Select} placeholder='Informe o status' readOnly={this.props.readOnly} options={StatusEnum} />
+                            <Field component={Select} disabled={disabled} name={`[${field}][${index}].status`} placeholder='Informe o status' options={StatusEnum} />
                         </td>
                     </If>
 
                     <td>
-                        <button type='button' className='btn btn-success' disabled={this.props.readOnly} onClick={() => this.add(index + 1)} >
+                        <button className='btn btn-success' disabled={disabled} onClick={() => this.add(index + 1)} type='button'>
                             <i className='fa fa-plus' />
                         </button>
 
-                        <button type='button' className='btn btn-warning' disabled={this.props.readOnly} onClick={() => this.add(index + 1, item)} >
+                        <button className='btn btn-warning' disabled={disabled} onClick={() => this.add(index + 1, item)} type='button'>
                             <i className='fa fa-clone' />
                         </button>
 
-                        <button type='button' className='btn btn-danger' disabled={this.props.readOnly} onClick={() => this.remove(index)} >
+                        <button className='btn btn-danger' disabled={disabled} onClick={() => this.remove(index)} type='button'>
                             <i className='fa fa-trash-o' />
                         </button>
                     </td>
@@ -58,11 +58,13 @@ class ItemList extends Component {
     };
 
     render() {
+        const { cols, showStatus, title } = this.props;
+
         return (
-            <Grid cols={this.props.cols}>
+            <Grid cols={cols}>
                 <fieldset>
                     <legend>
-                        {this.props.title}
+                        {title}
                     </legend>
 
                     <table className='table'>
@@ -70,7 +72,7 @@ class ItemList extends Component {
                             <tr>
                                 <th>Nome</th>
                                 <th>Valor</th>
-                                <If condition={this.props.showStatus}>
+                                <If condition={showStatus}>
                                     <th>Status</th>
                                 </If>
                                 <th className='table-actions'>Ações</th>

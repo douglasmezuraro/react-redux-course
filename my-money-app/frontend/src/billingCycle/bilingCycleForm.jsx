@@ -21,20 +21,20 @@ class BillingCycleForm extends Component {
     };
 
     render() {
-        const { credits, debts, handleSubmit, init, readOnly, submitClass, submitLabel } = this.props;
+        const { credits, debts, disabled, handleSubmit, init, submitClass, submitLabel } = this.props;
         const { sumOfCredits, sumOfDebts } = this.calculateSummary();
 
         return (
             <form role='form' onSubmit={handleSubmit}>
                 <div className='box-body'>
-                    <Field name='name' component={LabeledInput} label='Nome' cols='12 4' placeholder='Informe o nome' readOnly={readOnly} />
-                    <Field name='month' component={LabeledSelect} label='Mês' cols='12 4' placeholder='Infome o mês' options={MonthEnum} readOnly={readOnly} />
-                    <Field name='year' component={LabeledInput} label='Ano' cols='12 4' placeholder='Informe o ano' type='number' step={0.01} readOnly={readOnly} />
+                    <Field name='name' component={LabeledInput} disabled={disabled} label='Nome' cols='12 4' placeholder='Informe o nome' />
+                    <Field name='month' component={LabeledSelect} disabled={disabled} label='Mês' cols='12 4' placeholder='Infome o mês' options={MonthEnum} />
+                    <Field name='year' component={LabeledInput} disabled={disabled} label='Ano' cols='12 4' placeholder='Informe o ano' type='number' step={0.01} />
 
                     <Summary credit={sumOfCredits} debt={sumOfDebts} />
 
-                    <ItemList title='Créditos' field='credits' cols='12 6' readOnly={readOnly} showStatus={false} values={credits} />
-                    <ItemList title='Débitos' field='debts' cols='12 6' readOnly={readOnly} showStatus={true} values={debts} />
+                    <ItemList cols='12 6' disabled={disabled} field='credits' showStatus={false} title='Créditos' values={credits} />
+                    <ItemList cols='12 6' disabled={disabled} field='debts' showStatus={true} title='Débitos' values={debts} />
                 </div>
 
                 <div className='box-footer'>

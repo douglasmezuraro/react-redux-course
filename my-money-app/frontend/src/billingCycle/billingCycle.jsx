@@ -4,13 +4,11 @@ import { bindActionCreators } from 'redux';
 
 import ContentHeader from '../common/template/contentHeader';
 import Content from '../common/template/content';
-
 import Tabs from '../common/tab/tabs';
 import TabsHeader from '../common/tab/tabsHeader';
 import TabsContent from '../common/tab/tabsContent';
 import TabHeader from '../common/tab/tabHeader';
 import TabContent from '../common/tab/tabContent';
-
 import Form from './bilingCycleForm';
 import List from './billingCycleList';
 
@@ -49,7 +47,7 @@ class BillingCycle extends Component {
                             </TabContent>
 
                             <TabContent id='tabDelete'>
-                                <Form onSubmit={remove} submitClass='btn btn-danger' submitLabel='Remover' readOnly={true} />
+                                <Form disabled={true} onSubmit={remove} submitClass='btn btn-danger' submitLabel='Remover' />
                             </TabContent>
                         </TabsContent>
                     </Tabs>
