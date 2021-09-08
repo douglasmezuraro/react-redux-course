@@ -13,18 +13,10 @@ import { StatusEnum } from './enums';
 
 class ItemList extends Component {
     add(index, item = {}) {
-        if (this.props.readOnly) {
-            return;
-        };
-
         this.props.arrayInsert('billingCycleForm', this.props.field, index, item);
     };
 
     remove(index) {
-        if (this.props.readOnly || this.props.values.length <= 1) {
-            return;
-        };
-
         this.props.arrayRemove('billingCycleForm', this.props.field, index);
     };
 
@@ -48,15 +40,15 @@ class ItemList extends Component {
                     </If>
 
                     <td>
-                        <button type='button' className='btn btn-success' onClick={() => this.add(index + 1)} >
+                        <button type='button' className='btn btn-success' disabled={this.props.readOnly} onClick={() => this.add(index + 1)} >
                             <i className='fa fa-plus' />
                         </button>
 
-                        <button type='button' className='btn btn-warning' onClick={() => this.add(index + 1, item)} >
+                        <button type='button' className='btn btn-warning' disabled={this.props.readOnly} onClick={() => this.add(index + 1, item)} >
                             <i className='fa fa-clone' />
                         </button>
 
-                        <button type='button' className='btn btn-danger' onClick={() => this.remove(index)} >
+                        <button type='button' className='btn btn-danger' disabled={this.props.readOnly} onClick={() => this.remove(index)} >
                             <i className='fa fa-trash-o' />
                         </button>
                     </td>
