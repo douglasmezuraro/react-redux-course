@@ -1,7 +1,7 @@
 export const StatusEnum = Object.freeze([
-    { value: 'PAGO', label: 'Pago' },
-    { value: 'PENDENTE', label: 'Pendente' },
-    { value: 'AGENDADO', label: 'Agendado' },
+    { value: 0, label: 'Pago' },
+    { value: 1, label: 'Pendente' },
+    { value: 2, label: 'Agendado' },
 ]);
 
 export const MonthEnum = Object.freeze([
