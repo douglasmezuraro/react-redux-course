@@ -1,10 +1,10 @@
 import React from 'react';
 
 const Select = ({ input, options, placeholder, readOnly }) => (
-    <select {...input} className='form-control' placeholder={placeholder} readOnly={readOnly}>
+    <select {...input} className='form-control' placeholder={placeholder} disabled={readOnly}>
         <option />
-        {options.map((option, index) => <option key={index} value={option.value}>{option.label}</option>)}
-    </select>        
+        {options.map(option => <option key={option.value} value={option.value}>{option.label}</option>)}
+    </select>
 );
 
 export default Select;
